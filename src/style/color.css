@@ -1,0 +1,10 @@
+:root {
+  --backgroundColor: #061015;
+  --backgroundItemDark: #0e171c;
+  --backgroundItemLight: #082d3f;
+  --backgroundItemLighter: #253d49;
+  --colorItemPrimary: #0eb0fb;
+  --colorItemSecondary: #8dcdea;
+  --textColor: #e2edf3;
+  --textColorHover: #ffffff;
+}

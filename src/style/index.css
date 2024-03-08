@@ -1,0 +1,22 @@
+@import "./color.css";
+@import "./fonts.css";
+
+:root {
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+  font-family: var(--fontText);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h2,
+h4,
+h5,
+h6 {
+  font-family: var(--fontTitle);
+}

@@ -1,0 +1,23 @@
+@import "../../style/index.css";
+
+.container_boutons_nav {
+  position: fixed;
+  display: inline-block;
+  height: 4vh;
+  border: 3px solid var(--backgroundItemLighter);
+  border-radius: 8px;
+  margin: 1vh;
+}
+.bouton_nav {
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+  font-size: var(--fontSizeSmall);
+  padding: 4px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  height: 100%;
+}
+.bouton_nav:hover {
+  background-color: var(--backgroundItemLight);
+  color: var(--textColorHover);
+}
