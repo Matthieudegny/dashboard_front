@@ -1,6 +1,7 @@
 //loading for visitor and users
 //visitor is redirected to home after 100% loading (time determined by the timer)
 //users are redirected to the home page after the datasApp mutation is successful (time determined by the request)
+//Main goal of this component is to show a loading screen while the user is being redirected to the home page and while the datas are fetching
 
 import React, { useEffect } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -39,7 +40,7 @@ const Loading = () => {
         </>
       ) : (
         <Stack sx={{ display: "flex", height: "100%", width: "100%", alignItems: "center", justifyContent: "center" }}>
-          <CircularProgress size={100} />
+          <CircularProgress size={100} sx={{ cursor: "wait" }} />
         </Stack>
       )}
     </div>

@@ -11,7 +11,7 @@ import { bodyRequestLoginType, ResponseLoginType, DecodedToken } from "../../mod
 //request
 import { loginRequest } from "../../api/Login/request_Login";
 
-export const useLogin = (): {
+export const useLoginRequest = (): {
   loginMutation: UseMutateAsyncFunction<ResponseLoginType | Error, Error, bodyRequestLoginType, unknown>;
   loginMutationFetching: boolean;
 } => {

@@ -48,6 +48,20 @@ const theme = createTheme({
         },
       },
     },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          fontSize: "24px",
+          color: "#15c5e0",
+          borderRadius: "8px", // Coins arrondis
+          "&:hover": {
+            backgroundColor: "#15c5e0",
+            color: "white",
+            borderRadius: "8px", // Coins arrondis au survol
+          },
+        },
+      },
+    },
     MuiTextField: {
       variants: [
         {

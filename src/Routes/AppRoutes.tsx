@@ -6,12 +6,12 @@ import { useLocation } from "react-router-dom";
 import "./AppRoutes.css";
 
 //components
-import Home from "@/pages/Home";
-import Login from "@/pages/Login";
-import Navigation from "@/components/Navigation/Navigation";
+import Home from "../pages/Home";
+import Login from "../pages/Login";
+import Navigation from "../components/Navigation/Navigation";
 
 //hook
-import { useDetectionToken } from "@/hook/Login/useDetectionToken";
+import { useDetectionToken } from "../hook/Login/useDetectionToken";
 
 const AppRoutes = () => {
   const location = useLocation();

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, LinearProgress, LinearProgressProps, Typography, Stack } from "@mui/material";
+import { Box, LinearProgress, Typography } from "@mui/material";
 
 //store
 import { useAuthStore } from "../../store/useAuthStore";
@@ -30,14 +30,14 @@ function LinearProgressWithLabel() {
   }, [progress]);
 
   return (
-    <Stack sx={{ display: "flex", flexDirection: "column", gap: "20px", height: "100%", width: "100%", alignItems: "center", justifyContent: "center", cursor: "wait" }}>
-      <Stack sx={{ width: "95%", mr: 1 }}>
+    <Box sx={{ display: "flex", flexDirection: "column", gap: "20px", height: "100%", width: "100%", alignItems: "center", justifyContent: "center" }}>
+      <Box sx={{ width: "95%", mr: 1, cursor: "wait" }}>
         <LinearProgress variant="determinate" value={progress} />
-      </Stack>
-      <Stack sx={{ minWidth: 35 }}>
+      </Box>
+      <Box sx={{ minWidth: 35, cursor: "wait" }}>
         <Typography variant="body2" color="#ffffff">{`${Math.round(progress)}%`}</Typography>
-      </Stack>
-    </Stack>
+      </Box>
+    </Box>
   );
 }
 
