@@ -1,0 +1,47 @@
+@import "../../style/index.css";
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 2fr;
+  height: 100%;
+  gap: 5vh;
+}
+
+.grid-item {
+  border: 1px solid var(--backgroundItemLight);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1vh;
+  background-color: var(--backgroundItemDark);
+  border-radius: 10px;
+}
+.grid-item:hover {
+  background-color: var(--backgroundItemLight);
+  border: 2px solid var(--colorItemPrimary);
+}
+
+.item1 {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 1;
+}
+
+.item2 {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+}
+
+.item3 {
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 1;
+}
+
+.item4 {
+  grid-column: 1 / span 3;
+  grid-row: 2 / span 1;
+}
+
+.item {
+  background-color: var(--backgroundItemLighter);
+  border-radius: 10px;
+}

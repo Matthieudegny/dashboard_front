@@ -3,7 +3,7 @@
 import React from "react";
 
 //store
-import { useAuthStore } from "../store/useAuthStore";
+import { useAuthStore } from "../store/Login/useAuthStore";
 
 //composant
 import Loading from "../components/Login/Loading";

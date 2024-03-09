@@ -8,7 +8,7 @@ import { bodyRequestLoginType } from "../../model/Login/model_request_login";
 import { useLoginRequest } from "../../hook/Login/useLoginRequest";
 
 //store
-import { useAuthStore } from "../../store/useAuthStore";
+import { useAuthStore } from "../../store/Login/useAuthStore";
 
 export const useLoginForm = (
   myDivRef: React.RefObject<HTMLDivElement>

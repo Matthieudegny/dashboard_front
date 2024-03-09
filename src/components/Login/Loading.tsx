@@ -10,21 +10,21 @@ import { Stack } from "@mui/material";
 import "../../style/animations.css";
 
 //store
-import { useAuthStore } from "../../store/useAuthStore";
+import { useAuthStore } from "../../store/Login/useAuthStore";
 
 //composant
 import LinearProgressWithLabel from "./LinearProgressWithLabel";
 
 //hook
 import { useGetDatas } from "../../hook/Login/useGetDatas";
-import { useGetBalance } from "../../hook/Balance/useGetBalance";
+import { useGetHomeDatas } from "../../hook/Home/useGetHomeDatas";
 
 const Loading = () => {
   const { token } = useAuthStore();
   //trigger the request to get the datas
   const {} = useGetDatas();
   //trigger the calculation of the balance
-  const {} = useGetBalance();
+  const {} = useGetHomeDatas();
 
   return (
     <div

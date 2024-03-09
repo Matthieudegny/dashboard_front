@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Box, LinearProgress, Typography } from "@mui/material";
 
 //store
-import { useAuthStore } from "../../store/useAuthStore";
+import { useAuthStore } from "../../store/Login/useAuthStore";
 
 function LinearProgressWithLabel() {
   const navigate = useNavigate();

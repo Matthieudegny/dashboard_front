@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import "./AppRoutes.css";
 
 //components
-import Home from "../pages/Home";
+import Home from "../pages/Home/Home";
 import Login from "../pages/Login";
 import Navigation from "../components/Navigation/Navigation";
 

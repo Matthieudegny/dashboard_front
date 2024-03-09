@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 //store
-import { useAuthStore } from "../../store/useAuthStore";
+import { useAuthStore } from "../../store/Login/useAuthStore";
 
 //model
 import { bodyRequestLoginType, ResponseLoginType, DecodedToken } from "../../model/Login/model_request_login";

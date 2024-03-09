@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 //models
-import { Setup, Failure } from "../model/Categories/model_catgories";
+import { Setup, Failure } from "../../model/Categories/model_catgories";
 
 interface useCategoriesStoreModel {
   listCategoriesSetup: Setup[];

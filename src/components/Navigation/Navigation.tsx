@@ -14,7 +14,7 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { NavigationContent } from "../../data/NavigationContent";
 
 //store
-import { useAuthStore } from "../../store/useAuthStore";
+import { useAuthStore } from "../../store/Login/useAuthStore";
 
 const Navigation = () => {
   const navigate = useNavigate();

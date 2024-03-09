@@ -1,18 +1,20 @@
+//No async request, only OOP and calculation
 //1. at each listGlobalOrders updates, we calculate the balance of the wallet
 //2. and determine the exposure of the user
 
 import { useEffect } from "react";
 
 //store
-import { useOrdersStore } from "../../store/useOrdersStore";
-import { useBalanceStore } from "../../store/useBalanceStore";
+import { useOrdersStore } from "../../store/MainDatas/useOrdersStore";
+import { useHomeStore } from "../../store/Home/useBalanceStore";
 
 //model
 import { GlobalOrderFillWithDatasDto } from "../../model/Order/model_order";
+import { IterationDataGridHomeXY } from "../../model/Home/model_Home";
 
-export const useGetBalance = () => {
+export const useGetHomeDatas = () => {
   const { listGlobalOrders, setListGlobalOrders } = useOrdersStore();
-  const { balance, setBalance, setListIterationsBalance, setPrctExposition, setTotalOrders } = useBalanceStore();
+  const { balance, setBalance, setListIterationsBalance, setPrctExposition, setTotalOrders } = useHomeStore();
 
   useEffect(() => {
     calculateExposureWallet();
@@ -22,14 +24,14 @@ export const useGetBalance = () => {
 
   //1. Function to calculate balance of positions
   const calculateBalanceOfPositions = (orders: Array<GlobalOrderFillWithDatasDto>) => {
-    let listBalanceOfPositions: { id: number; result: number }[] = [];
+    let listBalanceOfPositions: IterationDataGridHomeXY[] = [];
     let balance = 0;
 
     // Loop through orders
-    for (const order of orders) {
+    orders?.map((order) => {
       balance += +order.globalOrder.go_result; // Update balance
-      listBalanceOfPositions.push({ id: order.globalOrder.go_id, result: balance }); // Push balance of position
-    }
+      listBalanceOfPositions.push({ index: order.globalOrder.go_id, value: balance }); // Push balance of position
+    });
 
     // Set balance
     setBalance(balance);
@@ -60,11 +62,10 @@ export const useGetBalance = () => {
       }
       //3. i update the total exposure
       totalExposure += exposureGlobalOrder;
+      //Calcul pourcecentage of exposure
+      let percentageExposure = (totalExposure / balance) * 100;
+      setPrctExposition(percentageExposure);
     });
-
-    //Calcul pourcecentage of exposure
-    let percentageExposure = (totalExposure / balance) * 100;
-    setPrctExposition(percentageExposure);
   };
 
   return { listGlobalOrders, setListGlobalOrders };

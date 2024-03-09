@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 
 //hook
-import { useAuthStore } from "../../store/useAuthStore";
+import { useAuthStore } from "../../store/Login/useAuthStore";
 import { useGetDatas } from "./useGetDatas";
 
 //model

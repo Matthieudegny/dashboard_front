@@ -1,5 +1,6 @@
 @import "./color.css";
 @import "./fonts.css";
+@import "./animations.css";
 
 :root {
   background-color: var(--backgroundColor);

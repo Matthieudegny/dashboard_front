@@ -7,9 +7,9 @@ import { toast } from "react-toastify";
 import { GetMainDatasByIdUser } from "../../api/Login/request_Login";
 
 //store
-import { useAuthStore } from "../../store/useAuthStore";
-import { useOrdersStore } from "../../store/useOrdersStore";
-import { useCategoriesStore } from "../../store/useCategoriesStore";
+import { useAuthStore } from "../../store/Login/useAuthStore";
+import { useOrdersStore } from "../../store/MainDatas/useOrdersStore";
+import { useCategoriesStore } from "../../store/MainDatas/useCategoriesStore";
 
 //model
 import { ResponseGetMainDatasByIdUserType } from "../../model/Login/model_request_login";

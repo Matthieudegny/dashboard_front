@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 //model
-import { GlobalOrderFillWithDatasDto } from "../model/Order/model_order";
+import { GlobalOrderFillWithDatasDto } from "../../model/Order/model_order";
 
 interface useOrdersStoreModel {
   listGlobalOrders: GlobalOrderFillWithDatasDto[];
