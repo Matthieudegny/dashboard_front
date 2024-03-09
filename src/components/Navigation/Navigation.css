@@ -5,9 +5,10 @@
   height: 4vh;
   border: 3px solid var(--backgroundItemLighter);
   border-radius: 8px;
-  margin: 0.5vh;
+  margin: 2vh;
 }
 .bouton_nav {
+  border: 1px solid var(--backgroundColor);
   background-color: var(--backgroundColor);
   color: var(--textColor);
   font-size: var(--fontSizeSmall);
@@ -15,9 +16,20 @@
   border-radius: 4px;
   height: 100%;
   min-width: 70px;
-  border: none;
+  padding: 0px 10px;
 }
 .bouton_nav:hover {
   background-color: var(--backgroundItemLight);
   color: var(--textColorHover);
+  border: 1px solid var(--colorItemSecondary);
+}
+.linkActive {
+  background-color: var(--backgroundItemLighter);
+  color: var(--colorItemPrimary);
+  border: 1px solid var(--colorItemPrimary);
+}
+.linkActive:hover {
+  background-color: var(--backgroundItemLighter);
+  color: var(--colorItemPrimary);
+  border: 1px solid var(--colorItemPrimary);
 }

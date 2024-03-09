@@ -27,6 +27,15 @@ const Navigation = () => {
     setIsLoggedIn(false);
     navigate("/");
   };
+
+  const checkIfLinkIsActive = (url: string) => {
+    if (window.location.pathname === url) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <div
       style={{
@@ -35,21 +44,21 @@ const Navigation = () => {
         alignItems: "center",
         width: "100%",
         position: "fixed",
-        height: "5vh",
+        height: "8vh",
       }}
     >
       <div className="container_boutons_nav">
         {NavigationContent.map((item) => {
           return (
             <Link to={item.url} key={item.id}>
-              <button className="bouton_nav">{item.name}</button>
+              <button className={`bouton_nav ${checkIfLinkIsActive(item.url) ? "linkActive" : ""}`}>{item.name}</button>
             </Link>
           );
         })}
       </div>
       <div
         style={{
-          marginRight: "0.5vh",
+          marginRight: "2vh",
         }}
       >
         <IconButton onClick={handleLogOut}>

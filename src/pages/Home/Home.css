@@ -2,23 +2,23 @@
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 1fr 6fr;
   height: 100%;
-  gap: 5vh;
+  gap: 2vh;
 }
 
 .grid-item {
   border: 1px solid var(--backgroundItemLight);
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  gap: 1vh;
+  justify-content: center;
+  gap: 4vh;
   background-color: var(--backgroundItemDark);
   border-radius: 10px;
 }
 .grid-item:hover {
   background-color: var(--backgroundItemLight);
-  border: 2px solid var(--colorItemPrimary);
+  border: 1px solid var(--backgroundItemLighter);
 }
 
 .item1 {

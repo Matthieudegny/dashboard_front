@@ -28,9 +28,9 @@ export const useGetHomeDatas = () => {
     let balance = 0;
 
     // Loop through orders
-    orders?.map((order) => {
+    orders?.map((order, index) => {
       balance += +order.globalOrder.go_result; // Update balance
-      listBalanceOfPositions.push({ index: order.globalOrder.go_id, value: balance }); // Push balance of position
+      listBalanceOfPositions.push({ index: index + 1, value: balance }); // Push balance of position
     });
 
     // Set balance

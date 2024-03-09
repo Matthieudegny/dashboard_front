@@ -6,6 +6,7 @@ import ReactECharts from "echarts-for-react";
 import { Typography } from "@mui/material";
 
 import "./Home.css";
+import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 
 //store
 import { useHomeStore } from "../../store/Home/useBalanceStore";
@@ -36,16 +37,50 @@ const Home = () => {
     listIterationsBalance?.map((item: IterationDataGridHomeXY) => {
       listY.push(item.value);
     });
+    console.log("listY", listY);
     return listY;
   };
 
   const option = {
+    title: {
+      text: "Balance evolution",
+      left: "center",
+      top: "10px",
+      textStyle: {
+        color: "white",
+        fontSize: 25,
+        fontFamily: "Arial",
+        fontWeight: "normal",
+      },
+    },
     xAxis: {
       type: "category",
       data: returnXOptions(),
+      boundaryGap: false,
     },
     yAxis: {
       type: "value",
+    },
+    toolbox: {
+      feature: {
+        saveAsImage: {},
+      },
+      right: 20,
+    },
+    tooltip: {
+      trigger: "axis",
+      formatter: function (params: any) {
+        var valueX = params[0].value;
+        var valueY = params[0].axisValue;
+        return `Trade n°${valueY} <br />
+         Balance value ${valueX}$`;
+      },
+    },
+    grid: {
+      left: 80,
+      right: 80,
+      top: 80,
+      bottom: 40,
     },
     series: [
       {

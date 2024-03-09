@@ -9,6 +9,7 @@ import "./AppRoutes.css";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login";
 import Navigation from "../components/Navigation/Navigation";
+import Orders from "../pages/Orders/Orders";
 
 //hook
 import { useDetectionToken } from "../hook/Login/useDetectionToken";
@@ -26,6 +27,7 @@ const AppRoutes = () => {
           <Route path="/" element={<Login />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/Orders" element={<Orders />} />
         </Routes>
       </div>
     </div>
