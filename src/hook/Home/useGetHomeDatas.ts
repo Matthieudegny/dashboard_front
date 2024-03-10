@@ -63,7 +63,7 @@ export const useGetHomeDatas = () => {
       //3. i update the total exposure
       totalExposure += exposureGlobalOrder;
       //Calcul pourcecentage of exposure
-      let percentageExposure = (totalExposure / balance) * 100;
+      let percentageExposure = (totalExposure / balance) * 100 || 0;
       setPrctExposition(percentageExposure);
     });
   };

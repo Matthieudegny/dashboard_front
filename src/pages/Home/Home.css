@@ -2,9 +2,10 @@
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 6fr;
+  grid-template-rows: 1fr 8fr;
   height: 100%;
   gap: 2vh;
+  overflow: hidden;
 }
 
 .grid-item {

@@ -30,12 +30,14 @@ function LinearProgressWithLabel() {
   }, [progress]);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", gap: "20px", height: "100%", width: "100%", alignItems: "center", justifyContent: "center" }}>
-      <Box sx={{ width: "95%", mr: 1, cursor: "wait" }}>
-        <LinearProgress variant="determinate" value={progress} />
-      </Box>
-      <Box sx={{ minWidth: 35, cursor: "wait" }}>
-        <Typography variant="body2" color="#ffffff">{`${Math.round(progress)}%`}</Typography>
+    <Box sx={{ height: "100%", width: "100%", display: "grid", placeItems: "center" }}>
+      <Box sx={{ cursor: "wait", width: "calc(100% - 2vw)", padding: "2vw", display: "flex", flexDirection: "column", gap: "20px", alignItems: "center", justifyContent: "center" }}>
+        <Box sx={{ width: "95%", mr: 1, cursor: "wait" }}>
+          <LinearProgress variant="determinate" value={progress} />
+        </Box>
+        <Box sx={{ minWidth: 35, cursor: "wait" }}>
+          <Typography variant="body2" color="#ffffff">{`${Math.round(progress)}%`}</Typography>
+        </Box>
       </Box>
     </Box>
   );

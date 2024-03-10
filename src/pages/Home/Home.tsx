@@ -6,106 +6,60 @@ import ReactECharts from "echarts-for-react";
 import { Typography } from "@mui/material";
 
 import "./Home.css";
-import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
+import "../../style/index.css";
 
 //store
 import { useHomeStore } from "../../store/Home/useBalanceStore";
 
 //hook
 import { useGetHomeDatas } from "../../hook/Home/useGetHomeDatas";
-
-//model
-import { IterationDataGridHomeXY } from "../../model/Home/model_Home";
+import { useHomeChart } from "../../hook/Home/useHomeChart";
 
 const Home = () => {
   //In case the page is reload, we need to fetch the datas again
   const {} = useGetHomeDatas();
 
   //get the datas about balance from the store
-  const { balance, listIterationsBalance, PrctExposition, totalOrders } = useHomeStore();
+  const { balance, PrctExposition, totalOrders } = useHomeStore();
 
-  const returnXOptions = () => {
-    const listX: number[] = [];
-    listIterationsBalance?.map((item: IterationDataGridHomeXY) => {
-      listX.push(item.index);
-    });
-    return listX;
-  };
-
-  const returnYOptions = () => {
-    const listY: number[] = [];
-    listIterationsBalance?.map((item: IterationDataGridHomeXY) => {
-      listY.push(item.value);
-    });
-    console.log("listY", listY);
-    return listY;
-  };
-
-  const option = {
-    title: {
-      text: "Balance evolution",
-      left: "center",
-      top: "10px",
-      textStyle: {
-        color: "white",
-        fontSize: 25,
-        fontFamily: "Arial",
-        fontWeight: "normal",
-      },
-    },
-    xAxis: {
-      type: "category",
-      data: returnXOptions(),
-      boundaryGap: false,
-    },
-    yAxis: {
-      type: "value",
-    },
-    toolbox: {
-      feature: {
-        saveAsImage: {},
-      },
-      right: 20,
-    },
-    tooltip: {
-      trigger: "axis",
-      formatter: function (params: any) {
-        var valueX = params[0].value;
-        var valueY = params[0].axisValue;
-        return `Trade n°${valueY} <br />
-         Balance value ${valueX}$`;
-      },
-    },
-    grid: {
-      left: 80,
-      right: 80,
-      top: 80,
-      bottom: 40,
-    },
-    series: [
-      {
-        data: returnYOptions(),
-        type: "line",
-        smooth: true,
-      },
-    ],
-  };
+  //get the options of the chart
+  const { option } = useHomeChart();
 
   return (
     <div className="grid-container">
-      <div className="grid-item item1">
+      <div
+        style={{
+          animationDelay: "0.1s",
+        }}
+        className="grid-item item1 appearFromRight"
+      >
         <Typography variant="h3">Total Balance:</Typography>
         <Typography variant="h2">{balance}$</Typography>
       </div>
-      <div className="grid-item item2">
+      <div
+        style={{
+          animationDelay: "0.3s",
+        }}
+        className="grid-item item2 appearFromRight"
+      >
         <Typography variant="h3">Total Trade:</Typography>
         <Typography variant="h2">{totalOrders}</Typography>
       </div>
-      <div className="grid-item item3">
+      <div
+        style={{
+          animationDelay: "0.5s",
+        }}
+        className="grid-item item3 appearFromRight"
+      >
         <Typography variant="h3">Exposition:</Typography>
         <Typography variant="h2">{PrctExposition}%</Typography>
       </div>
-      <div className="grid-item item4">
+      <div
+        style={{
+          animationDelay: "0.7s",
+        }}
+        className="grid-item item4 fromOpacity0to1"
+      >
         <ReactECharts option={option} style={{ height: "700px", width: "100%" }} />
       </div>
     </div>

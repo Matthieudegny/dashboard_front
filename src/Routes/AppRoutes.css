@@ -1,6 +1,5 @@
 .main_container {
-  /* height Nav 8vh + 2*2 padding main container */
-  height: calc(100vh - 12vh);
+  height: calc(100vh - 10vh);
   padding: 2vh;
   padding-top: 8vh;
 }
