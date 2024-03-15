@@ -6,7 +6,7 @@ import React from "react";
 import "./Orders.css";
 
 //composant
-import OrdersListContainer from "../../components/Orders/OrdersList/OrdersListContainer";
+import OrdersListContainer from "../../components/Orders/OrdersListContainer";
 
 const Orders = () => {
   return (

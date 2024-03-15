@@ -10,7 +10,7 @@ export const returnFormatDateDataGrid = (date: string): string => {
   const year = dateFormatted.getFullYear().toString().slice(-2);
 
   // Construire la chaîne de date formatée
-  const formattedDate = `${hours}:${minutes} - ${day}/${month}/${year}`;
+  const formattedDate = `${day}/${month}/${year}`;
 
   return formattedDate;
 };

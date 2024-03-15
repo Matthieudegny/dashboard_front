@@ -49,16 +49,18 @@ export const useGetDatas = (): {
     if (datasApp) {
       const response: ResponseGetMainDatasByIdUserType = datasApp;
       console.log("success", response);
-      if (response.globalOrderList.length > 0) {
-        setListGlobalOrders(response.globalOrderList);
+      if (response) {
+        if (response?.globalOrderList?.length > 0) {
+          setListGlobalOrders(response.globalOrderList);
+        }
+        if (response?.setupList?.length > 0) {
+          setListCategories(response.setupList);
+        }
+        if (response?.failureList?.length > 0) {
+          setListCategoriesFailure(response.failureList);
+        }
+        navigate("/Home");
       }
-      if (response.setupList.length > 0) {
-        setListCategories(response.setupList);
-      }
-      if (response.failureList.length > 0) {
-        setListCategoriesFailure(response.failureList);
-      }
-      navigate("/Home");
     }
   }, [datasApp, datasAppIsError]);
 

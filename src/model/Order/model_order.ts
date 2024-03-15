@@ -1,18 +1,18 @@
-import { SetupType, FailureType } from "../Categories/model_catgories";
+import { FailureGoType, SetupGoType, SetupSoType, FailureSoType } from "../Categories/model_catgories";
 
 //list orders fill with datas
 export interface GlobalOrderFillWithDatasDto {
   globalOrder: Global_Order;
-  failureGo: Array<FailureType>;
-  setupGo: Array<SetupType>;
+  failureGo: Array<FailureGoType>;
+  setupGo: Array<SetupGoType>;
   imageGo: Array<ImageGo>;
   subOrderList: Array<SubOrderFillWithDatasDto>;
 }
 
 export interface SubOrderFillWithDatasDto {
   subOrder: Sub_Order;
-  failureSo: Array<FailureType>;
-  setupSo: Array<SetupType>;
+  failureSo: Array<FailureSoType>;
+  setupSo: Array<SetupSoType>;
   imageSo: Array<ImageSo>;
 }
 
@@ -38,8 +38,8 @@ export interface Global_Order {
 export interface Sub_Order {
   so_id: number;
   so_go_id: number;
-  so_openDate: Date;
-  so_closeDate: Date;
+  so_openDate: string;
+  so_closeDate: string;
   so_quantity: number;
   so_entryPrice: number;
   so_exitPrice: number;
