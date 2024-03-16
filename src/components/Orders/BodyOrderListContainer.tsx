@@ -8,12 +8,13 @@ import GlobalOrderItemContainer from "./GlobalOrderItemContainer";
 
 const BodyOrderListContainer: React.FC<{
   listGlobalOrders: GlobalOrderFillWithDatasDto[];
-}> = ({ listGlobalOrders }) => {
+  showAllSubOrdersList: boolean;
+}> = ({ listGlobalOrders, showAllSubOrdersList }) => {
   return (
     <div className="body_orderList_container">
       {listGlobalOrders?.map((order: GlobalOrderFillWithDatasDto) => {
         const { globalOrder } = order;
-        return <GlobalOrderItemContainer key={globalOrder.go_id} order={order} />;
+        return <GlobalOrderItemContainer key={globalOrder.go_id} order={order} showAllSubOrdersList={showAllSubOrdersList} />;
       })}
     </div>
   );

@@ -2,6 +2,9 @@ import React from "react";
 
 import "../../pages/Orders/Orders.css";
 
+//icons
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 //model
 import { GlobalOrderFillWithDatasDto } from "../../model/Order/model_order";
 
@@ -14,7 +17,10 @@ import { useReturnListFailureSetup } from "../../hook/Order/useReturnListFailure
 
 const GlobalOrderItem: React.FC<{
   order: GlobalOrderFillWithDatasDto;
-}> = ({ order }) => {
+  setshowSubOrdeList: React.Dispatch<React.SetStateAction<boolean>>;
+  showSubOrdeList: boolean;
+  subOrderListIsTrue: boolean;
+}> = ({ order, setshowSubOrdeList, showSubOrdeList, subOrderListIsTrue }) => {
   const { globalOrder } = order;
 
   //hook return list failure and setup selected in the order
@@ -33,6 +39,20 @@ const GlobalOrderItem: React.FC<{
       <ColumnWithShowOptions returnListOptionUsed={() => returnFailureListUsed()} title="Failures" subtitle="no failure" />
       <div className="OI_colum">Result %</div>
       <div className="OI_colum">{globalOrder.go_result}</div>
+
+      {/* arrow to open suborder list */}
+      {subOrderListIsTrue ? (
+        <div className="order_item_arrow" onClick={() => setshowSubOrdeList((prev) => !prev)}>
+          <ExpandMoreIcon
+            style={{
+              transform: `${showSubOrdeList ? "rotate(180deg)" : "rotate(0deg)"}`,
+              fontSize: "25px",
+              color: "#0eb0fb",
+              transition: "all 0.3s ease-in-out",
+            }}
+          />
+        </div>
+      ) : null}
     </div>
   );
 };

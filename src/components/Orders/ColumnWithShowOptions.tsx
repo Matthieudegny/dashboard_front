@@ -3,6 +3,7 @@ import React from "react";
 import "../../pages/Orders/Orders.css";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import DoNotDisturbAltIcon from "@mui/icons-material/DoNotDisturbAlt";
 
 export const ColumnWithShowOptions: React.FC<{
   returnListOptionUsed: () => JSX.Element[] | undefined;
@@ -24,7 +25,7 @@ export const ColumnWithShowOptions: React.FC<{
             <div className="iterationListSetup_Options_Container">{returnListOptionUsed()}</div>
           </div>
         ) : (
-          subtitle
+          <DoNotDisturbAltIcon sx={{ fontSize: "20px", color: "#0eb0fb" }} />
         )}
       </div>
     </div>
