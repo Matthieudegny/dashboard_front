@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-import "../../pages/Orders/Orders.css";
+import "../../../pages/Orders/Orders.css";
 
 //model
-import { GlobalOrderFillWithDatasDto } from "../../model/Order/model_order";
+import { GlobalOrderFillWithDatasDto } from "../../../model/Order/model_order";
 
 //component
 import GlobalOrderItem from "./GlobalOrderItem";

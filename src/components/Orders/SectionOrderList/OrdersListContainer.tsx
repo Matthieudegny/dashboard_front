@@ -3,13 +3,13 @@ import { Button } from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
-import "../../pages/Orders/Orders.css";
+import "../../../pages/Orders/Orders.css";
 
 //icons
 import AddIcon from "@mui/icons-material/Add";
 
 //store
-import { useOrdersStore } from "../../store/MainDatas/useOrdersStore";
+import { useOrdersStore } from "../../../store/MainDatas/useOrdersStore";
 
 //component
 import BodyOrderListContainer from "./BodyOrderListContainer";
@@ -26,7 +26,7 @@ const OrdersListContainer = () => {
           justifyContent: "space-between",
         }}
       >
-        <FormControlLabel control={<Checkbox value={showAllSubOrdersList} sx={{ color: "white" }} onChange={() => setshowAllSubOrdersList((prev) => !prev)} />} label="Show all sub-orders" />
+        <FormControlLabel control={<Checkbox value={showAllSubOrdersList} onChange={() => setshowAllSubOrdersList((prev) => !prev)} />} label="Show all sub-orders" />
         <Button>
           <AddIcon sx={{ pr: 0.5 }} />
           Create Order

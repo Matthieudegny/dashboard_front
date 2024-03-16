@@ -1,7 +1,7 @@
 import React from "react";
 
 //model
-import { GlobalOrderFillWithDatasDto } from "../../model/Order/model_order";
+import { GlobalOrderFillWithDatasDto } from "../../../model/Order/model_order";
 
 //component
 import GlobalOrderItemContainer from "./GlobalOrderItemContainer";

@@ -114,8 +114,8 @@
   gap: 1.2vh;
   padding: 1.2vh;
   padding-top: 1vh;
-  background-color: var(--backgroundItemLighter);
-  border-radius: 0px 8px 8px 8px;
+  background-color: var(--backgroundItemLight);
+  border-radius: 0px 0px 8px 8px;
 }
 
 .iterationListSetup_Options_Container {
@@ -126,13 +126,13 @@
   z-index: 100;
   width: auto;
   white-space: nowrap;
-  background-color: var(--backgroundItemLighter);
+  background-color: var(--backgroundItemLight);
 }
 .iterationListSetup_Options_item {
   display: flex;
   align-items: center;
   color: white;
-  background-color: var(--backgroundItemLighter);
+  background-color: var(--backgroundItemLight);
 }
 /* sub Order container */
 .subOrders_list_container {

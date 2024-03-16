@@ -21,6 +21,14 @@ const theme = createTheme({
       fontFamily: "var(--fontTitle)",
       fontSize: "var(--fontSizeH3)",
     },
+    h4: {
+      fontFamily: "var(--fontTitle)",
+      fontSize: "var(--fontSizeH4)",
+    },
+    h5: {
+      fontFamily: "var(--fontTitle)",
+      fontSize: "var(--fontSizeH5)",
+    },
   },
   palette: {
     primary: {
@@ -36,6 +44,16 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          padding: "0px",
+          paddingLeft: "15px",
+          paddingBottom: "2px",
+          color: "white",
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
@@ -52,6 +70,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontSize: "24px",
+          padding: "4px",
           color: "#15c5e0",
           borderRadius: "8px", // Coins arrondis
           "&:hover": {

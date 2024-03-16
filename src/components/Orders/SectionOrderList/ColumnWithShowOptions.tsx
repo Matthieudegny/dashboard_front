@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../../pages/Orders/Orders.css";
+import "../../../pages/Orders/Orders.css";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DoNotDisturbAltIcon from "@mui/icons-material/DoNotDisturbAlt";
