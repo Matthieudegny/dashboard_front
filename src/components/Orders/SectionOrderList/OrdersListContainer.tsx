@@ -8,16 +8,17 @@ import "../../../pages/Orders/Orders.css";
 //icons
 import AddIcon from "@mui/icons-material/Add";
 
-//store
-import { useOrdersStore } from "../../../store/MainDatas/useOrdersStore";
-
 //component
 import BodyOrderListContainer from "./BodyOrderListContainer";
 import HeaderOrderListContainer from "./HeaderOrderListContainer";
 
-const OrdersListContainer = () => {
+//model
+import { GlobalOrderFillWithDatasDto } from "../../../model/Order/model_order";
+
+const OrdersListContainer: React.FC<{
+  listGlobalOrdersSorted: GlobalOrderFillWithDatasDto[];
+}> = ({ listGlobalOrdersSorted }) => {
   const [showAllSubOrdersList, setshowAllSubOrdersList] = useState(false);
-  const { listGlobalOrders } = useOrdersStore();
   return (
     <div className="ordersListContainer">
       <div
@@ -33,7 +34,7 @@ const OrdersListContainer = () => {
         </Button>
       </div>
       <HeaderOrderListContainer />
-      <BodyOrderListContainer listGlobalOrders={listGlobalOrders} showAllSubOrdersList={showAllSubOrdersList} />
+      <BodyOrderListContainer listGlobalOrders={listGlobalOrdersSorted} showAllSubOrdersList={showAllSubOrdersList} />
     </div>
   );
 };
