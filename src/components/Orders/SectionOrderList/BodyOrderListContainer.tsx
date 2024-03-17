@@ -8,14 +8,14 @@ import { GlobalOrderFillWithDatasDto } from "../../../model/Order/model_order";
 import GlobalOrderItemContainer from "./GlobalOrderItemContainer";
 
 const BodyOrderListContainer: React.FC<{
-  listGlobalOrders: GlobalOrderFillWithDatasDto[];
+  listGlobalOrdersSorted: GlobalOrderFillWithDatasDto[];
   showAllSubOrdersList: boolean;
-}> = ({ listGlobalOrders, showAllSubOrdersList }) => {
+}> = ({ listGlobalOrdersSorted, showAllSubOrdersList }) => {
   return (
     <div className="body_orderList_container">
-      {listGlobalOrders?.map((order: GlobalOrderFillWithDatasDto) => {
+      {listGlobalOrdersSorted?.map((order: GlobalOrderFillWithDatasDto, index) => {
         const { globalOrder } = order;
-        return <GlobalOrderItemContainer key={globalOrder.go_id} order={order} showAllSubOrdersList={showAllSubOrdersList} />;
+        return <GlobalOrderItemContainer key={globalOrder.go_id} order={order} showAllSubOrdersList={showAllSubOrdersList} delay={index} />;
       })}
     </div>
   );

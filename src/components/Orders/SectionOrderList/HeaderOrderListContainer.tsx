@@ -13,20 +13,31 @@ const HeaderOrderListContainer: React.FC<{
   showAllSubOrdersList: boolean;
 }> = ({ setshowAllSubOrdersList, showAllSubOrdersList }) => {
   return (
-    <>
+    <div className="headerOrdersList_container fromOpacity0to1">
       <div
         style={{
           display: "flex",
           justifyContent: "space-between",
+          paddingBottom: "1.5vh",
         }}
       >
-        <FormControlLabel control={<Checkbox value={showAllSubOrdersList} onChange={() => setshowAllSubOrdersList((prev) => !prev)} />} label="Show all sub-orders" />
+        <FormControlLabel
+          control={<Checkbox value={showAllSubOrdersList} onChange={() => setshowAllSubOrdersList((prev) => !prev)} />}
+          label={`${showAllSubOrdersList ? "Hidden sub orders" : "Show sub orders"}`}
+          className="checkbox_showAllSubOrders"
+          sx={{ marginLeft: "0.1vh" }}
+        />
         <Button>
           <AddIcon sx={{ pr: 0.5 }} />
           Create Order
         </Button>
       </div>
-      <div className="order_item">
+      <div
+        style={{
+          color: "#15c5e0",
+        }}
+        className="order_item"
+      >
         <div className="OI_colum">Asset</div>
         <div className="OI_colum">Type</div>
         <div className="OI_colum">Qty $</div>
@@ -39,7 +50,7 @@ const HeaderOrderListContainer: React.FC<{
         <div className="OI_colum">Result %</div>
         <div className="OI_colum">Result $</div>
       </div>
-    </>
+    </div>
   );
 };
 

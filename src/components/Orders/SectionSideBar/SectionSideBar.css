@@ -1,11 +1,16 @@
 .SideBarContainer {
   display: flex;
   flex-direction: column;
-  width: 0vw;
+  width: 1vw;
+  transform: scaleX(0);
+  height: 100%;
+  border-radius: 8px;
   opacity: 0;
-  padding: 0vw;
   gap: 4vh;
   transition: width 0.3s ease-out, opacity 0.1s ease-out, padding 0.3s ease-out;
+}
+.SideBarContainer:hover {
+  background-color: var(--backgroundItemLight);
 }
 .SideBarContainer_section {
   display: flex;
@@ -14,6 +19,8 @@
 }
 .showSideBar {
   padding: 1vw;
+  background-color: var(--backgroundItemDark);
+  transform: scaleX(1);
   width: 8vw;
   opacity: 1;
   transition: width 0.3s ease-in, 0.2s opacity 0.3s ease-in, padding 0.3s ease-in;

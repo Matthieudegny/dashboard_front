@@ -35,8 +35,8 @@ const GlobalOrderItem: React.FC<{
       <div className="OI_colum">{returnFormatDateDataGrid(globalOrder.go_openDate)}</div>
       <div className="OI_colum">{globalOrder.go_percentageEngaged}</div>
       <div className="OI_colum">{globalOrder.go_quantity}</div>
-      <ColumnWithShowOptions returnListOptionUsed={() => returnSetupsListUsed()} title="Setups" subtitle="no setup" />
-      <ColumnWithShowOptions returnListOptionUsed={() => returnFailureListUsed()} title="Failures" subtitle="no failure" />
+      <ColumnWithShowOptions returnListOptionUsed={() => returnSetupsListUsed()} title="Setups" />
+      <ColumnWithShowOptions returnListOptionUsed={() => returnFailureListUsed()} title="Failures" />
       <div className="OI_colum">Result %</div>
       <div className="OI_colum">{globalOrder.go_result}</div>
 

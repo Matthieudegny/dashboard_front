@@ -16,7 +16,7 @@ const OrdersListContainer: React.FC<{
   return (
     <div className="ordersListContainer">
       <HeaderOrderListContainer setshowAllSubOrdersList={setshowAllSubOrdersList} showAllSubOrdersList={showAllSubOrdersList} />
-      <BodyOrderListContainer listGlobalOrders={listGlobalOrdersSorted} showAllSubOrdersList={showAllSubOrdersList} />
+      <BodyOrderListContainer listGlobalOrdersSorted={listGlobalOrdersSorted} showAllSubOrdersList={showAllSubOrdersList} />
     </div>
   );
 };

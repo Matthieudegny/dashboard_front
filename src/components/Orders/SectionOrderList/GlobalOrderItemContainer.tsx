@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import "./SectionOrderList.css";
+import "../../../style/animations.css";
 
 //model
 import { GlobalOrderFillWithDatasDto } from "../../../model/Order/model_order";
@@ -12,7 +13,8 @@ import SubOrderItem from "./SubOrderItem";
 const GlobalOrderItemContainer: React.FC<{
   order: GlobalOrderFillWithDatasDto;
   showAllSubOrdersList: boolean;
-}> = ({ order, showAllSubOrdersList }) => {
+  delay: number;
+}> = ({ order, showAllSubOrdersList, delay }) => {
   const [showSubOrdeList, setshowSubOrdeList] = useState<boolean>(false);
   const subOrderListIsTrue = order.subOrderList.length > 0;
 
@@ -25,7 +27,7 @@ const GlobalOrderItemContainer: React.FC<{
   }, [showAllSubOrdersList]);
 
   return (
-    <div className="globalOrder_item">
+    <div style={{ animationDelay: `${delay * 0.1}s` }} className="globalOrder_item fromOpacity0to1">
       <GlobalOrderItem order={order} setshowSubOrdeList={setshowSubOrdeList} showSubOrdeList={showSubOrdeList} subOrderListIsTrue={subOrderListIsTrue} />
       <div
         className={`subOrders_list_container ${showSubOrdeList ? "show" : ""}`}

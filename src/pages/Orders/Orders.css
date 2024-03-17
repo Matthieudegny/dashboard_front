@@ -13,18 +13,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--backgroundItemDark);
   border-radius: 10px;
-  /* padding: 0.2vw; */
   position: relative;
   transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
-.pageOrders_sideBar_container:hover {
-  background-color: var(--backgroundItemLight);
-}
+
 .icon_sidebarContainer_absolute {
   position: absolute;
-  top: 0.8vh;
+  top: 0.7vh;
   right: -0.7vw;
   cursor: pointer;
 }

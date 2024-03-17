@@ -8,8 +8,7 @@ import DoNotDisturbAltIcon from "@mui/icons-material/DoNotDisturbAlt";
 export const ColumnWithShowOptions: React.FC<{
   returnListOptionUsed: () => JSX.Element[] | undefined;
   title: string;
-  subtitle: string;
-}> = ({ returnListOptionUsed, title, subtitle }) => {
+}> = ({ returnListOptionUsed, title }) => {
   return (
     <div className="OI_colum">
       <div
@@ -25,7 +24,7 @@ export const ColumnWithShowOptions: React.FC<{
             <div className="iterationListSetup_Options_Container">{returnListOptionUsed()}</div>
           </div>
         ) : (
-          <DoNotDisturbAltIcon sx={{ fontSize: "20px", color: "#0eb0fb" }} />
+          <DoNotDisturbAltIcon sx={{ fontSize: "20px", color: "#15c5e0" }} />
         )}
       </div>
     </div>
