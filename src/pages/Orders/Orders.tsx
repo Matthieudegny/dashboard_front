@@ -9,13 +9,14 @@ import "./Orders.css";
 //icon
 import DehazeIcon from "@mui/icons-material/Dehaze";
 import CloseIcon from "@mui/icons-material/Close";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 //store
 import { useOrdersStore } from "../../store/MainDatas/useOrdersStore";
 
 //composant
 import OrdersListContainer from "../../components/Orders/SectionOrderList/OrdersListContainer";
-import SideBarContainer from "../../components/Orders/SideBar/SideBarContainer";
+import SideBarContainer from "../../components/Orders/SectionSideBar/SideBarContainer";
 import { GlobalOrderFillWithDatasDto } from "../../model/Order/model_order";
 
 const Orders = () => {
@@ -24,26 +25,23 @@ const Orders = () => {
 
   const { listGlobalOrders } = useOrdersStore();
 
-  //update the list of orders sorted
+  //initialize the list of orders sorted
   useEffect(() => {
-    console.log("listGlobalOrders", listGlobalOrders);
     setlistGlobalOrdersSorted(listGlobalOrders);
   }, [listGlobalOrders]);
 
   return (
-    //container page Orders
+    //containers page Order
     <div className="pageOrders_container">
       {/* container sidebar */}
-      <div className={`pageOrders_sideBar_container ${showSideBar ? "showSideBar" : ""}`}>
-        <SideBarContainer listGlobalOrdersSorted={listGlobalOrdersSorted} setlistGlobalOrdersSorted={setlistGlobalOrdersSorted} listGlobalOrders={listGlobalOrders} />
+      <div className="pageOrders_sideBar_container">
+        <SideBarContainer listGlobalOrdersSorted={listGlobalOrdersSorted} setlistGlobalOrdersSorted={setlistGlobalOrdersSorted} listGlobalOrders={listGlobalOrders} showSideBar={showSideBar} />
         <div className="icon_sidebarContainer_absolute">
-          <IconButton onClick={() => setshowSideBar((prev) => !prev)}>{showSideBar ? <DehazeIcon /> : <CloseIcon />}</IconButton>
+          <IconButton onClick={() => setshowSideBar((prev) => !prev)}>{showSideBar ? <CloseIcon /> : <SettingsIcon />}</IconButton>
         </div>
       </div>
       {/*container Orders */}
-      <div className="pageOrders_listOrder_container">
-        <OrdersListContainer listGlobalOrdersSorted={listGlobalOrdersSorted} />
-      </div>
+      <OrdersListContainer listGlobalOrdersSorted={listGlobalOrdersSorted} />
     </div>
   );
 };

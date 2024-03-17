@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../../../pages/Orders/Orders.css";
+import "./SectionOrderList.css";
 
 //icons
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";

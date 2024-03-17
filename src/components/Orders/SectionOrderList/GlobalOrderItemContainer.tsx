@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import "../../../pages/Orders/Orders.css";
+import "./SectionOrderList.css";
 
 //model
 import { GlobalOrderFillWithDatasDto } from "../../../model/Order/model_order";

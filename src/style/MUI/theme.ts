@@ -29,6 +29,10 @@ const theme = createTheme({
       fontFamily: "var(--fontTitle)",
       fontSize: "var(--fontSizeH5)",
     },
+    h6: {
+      fontFamily: "var(--fontTitle)",
+      fontSize: "var(--fontSizeH6)",
+    },
   },
   palette: {
     primary: {
@@ -44,9 +48,21 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiFormControlLabel: {
+      // Définissez le composant FormControlLabel
+      styleOverrides: {
+        label: {
+          fontSize: "1rem",
+        },
+      },
+    },
+
     MuiRadio: {
       styleOverrides: {
         root: {
+          padding: "0px",
+          paddingLeft: "15px",
+          paddingRight: "4px",
           color: "white",
         },
       },
@@ -57,10 +73,12 @@ const theme = createTheme({
           padding: "0px",
           paddingLeft: "15px",
           paddingBottom: "2px",
+          paddingRight: "4px",
           color: "white",
         },
       },
     },
+
     MuiButton: {
       styleOverrides: {
         root: {

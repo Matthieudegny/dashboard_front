@@ -1,0 +1,31 @@
+.SideBarContainer {
+  display: flex;
+  flex-direction: column;
+  width: 0vw;
+  opacity: 0;
+  padding: 0vw;
+  gap: 4vh;
+  transition: width 0.3s ease-out, opacity 0.1s ease-out, padding 0.3s ease-out;
+}
+.SideBarContainer_section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+}
+.showSideBar {
+  padding: 1vw;
+  width: 8vw;
+  opacity: 1;
+  transition: width 0.3s ease-in, 0.2s opacity 0.3s ease-in, padding 0.3s ease-in;
+}
+.container_option {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0px 5px 0px 5px;
+}
+.container_option_body {
+  display: flex;
+}
