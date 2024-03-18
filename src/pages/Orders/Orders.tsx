@@ -32,7 +32,7 @@ const Orders = () => {
 
   return (
     //containers page Order
-    <div className="pageOrders_container">
+    <div className="pageOrders_container" id="modal-creationOrder">
       {/* container sidebar */}
       <div className="pageOrders_sideBar_container">
         <SideBarContainer listGlobalOrdersSorted={listGlobalOrdersSorted} setlistGlobalOrdersSorted={setlistGlobalOrdersSorted} listGlobalOrders={listGlobalOrders} showSideBar={showSideBar} />
