@@ -1,0 +1,41 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: none;
+}
+
+.item {
+  border-radius: 0.5rem;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+}
+
+.bn-container[data-theming-css-variables-demo][data-color-scheme] {
+  --bn-colors-editor-text: #0e171c;
+  --bn-colors-editor-background: #ffeeee;
+  --bn-colors-menu-text: #ffffff;
+  --bn-colors-menu-background: #0e171c;
+  --bn-colors-tooltip-text: #ffffff;
+  --bn-colors-tooltip-background: #253d49;
+  --bn-colors-hovered-text: #ffffff;
+  --bn-colors-hovered-background: #15c5e0;
+  --bn-colors-selected-text: #ffffff;
+  --bn-colors-selected-background: #15c5e0;
+  --bn-colors-disabled-text: #0e171c;
+  --bn-colors-disabled-background: #15c5e0;
+  --bn-colors-shadow: #253d49;
+  --bn-colors-border: #8dcdea;
+  --bn-colors-side-menu: #bababa;
+  --bn-color-highlight-colors: #ffffff;
+  --bn-border-radius: 4px;
+  --bn-font-family: Helvetica Neue, sans-serif;
+}
+
+.bn-container[data-theming-css-variables-demo][data-color-scheme="dark"] {
+  --bn-colors-editor-text: #ffffff;
+  --bn-colors-editor-background: #0e171c;
+  --bn-colors-side-menu: #ffffff;
+}

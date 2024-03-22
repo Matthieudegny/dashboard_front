@@ -63,3 +63,10 @@ export interface ImageSo {
   image_so_title: string;
   image_so_content: string;
 }
+
+export interface ImageFrontType {
+  id: number;
+  title: string;
+  image: string;
+  description: string;
+}

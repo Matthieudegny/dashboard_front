@@ -21,7 +21,7 @@ export const useGetDatas = (): {
   const token = localStorage.getItem("token");
   const { idUser } = useAuthStore();
   const { setListGlobalOrders } = useOrdersStore();
-  const { setListCategories, setListCategoriesFailure } = useCategoriesStore();
+  const { setListSetupGo, setListSetupSo, setListFailureGo, setListFailureSo } = useCategoriesStore();
 
   //GET
   const {
@@ -53,11 +53,17 @@ export const useGetDatas = (): {
         if (response?.globalOrderList?.length > 0) {
           setListGlobalOrders(response.globalOrderList);
         }
-        if (response?.setupList?.length > 0) {
-          setListCategories(response.setupList);
+        if (response?.setupGoList?.length > 0) {
+          setListSetupGo(response.setupGoList);
         }
-        if (response?.failureList?.length > 0) {
-          setListCategoriesFailure(response.failureList);
+        if (response?.setupSoList?.length > 0) {
+          setListSetupSo(response.setupSoList);
+        }
+        if (response?.failureGoList?.length > 0) {
+          setListFailureGo(response.failureGoList);
+        }
+        if (response?.failureSoList?.length > 0) {
+          setListFailureSo(response.failureSoList);
         }
         navigate("/Home");
       }

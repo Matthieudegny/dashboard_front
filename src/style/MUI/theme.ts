@@ -82,12 +82,18 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          height: "50px",
-          width: "180px",
+          minWidth: "170px",
+          fontWeight: "bolder",
+          lineHeight: "50px",
+          padding: "0 20px",
+          letterSpacing: "0.08vw",
           "&:hover": {
             backgroundColor: "#15c5e0",
             color: "white",
           },
+        },
+        startIcon: {
+          paddingBottom: "2px",
         },
       },
     },
@@ -95,6 +101,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontSize: "24px",
+
           padding: "4px",
           color: "#15c5e0",
           borderRadius: "8px", // Coins arrondis
@@ -115,7 +122,7 @@ const theme = createTheme({
               color: "white",
             },
             "& label.Mui-focused": {
-              color: "white",
+              color: "#15c5e0",
             },
             "& .MuiInput-underline:after": {
               borderBottomColor: "white",
@@ -143,6 +150,56 @@ const theme = createTheme({
           },
         },
       ],
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          ".MuiOutlinedInput-notchedOutline": {
+            borderColor: "white", // Couleur de la bordure au survol
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "white", // Couleur de la bordure au survol
+          },
+        },
+      },
+    },
+    MuiSelect: {
+      styleOverrides: {
+        root: {
+          color: "white",
+          "& label": {
+            color: "white",
+          },
+          "& label.Mui-focused": {
+            color: "#15c5e0",
+          },
+          "& .MuiSvgIcon-root": {
+            color: "white",
+            backgroundColor: "white",
+            fill: "white",
+          },
+        },
+      },
+      defaultProps: {
+        MenuProps: {
+          PaperProps: {
+            style: {
+              backgroundColor: "#0e2530", // Couleur de fond pour le menu déroulant
+            },
+          },
+        },
+      },
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          color: "white", // Couleur de texte blanche
+          backgroundColor: "#0e2530", // Arrière-plan rouge par défaut
+          "&:hover": {
+            backgroundColor: "#253d49", // Arrière-plan au survol
+          },
+        },
+      },
     },
   },
 });

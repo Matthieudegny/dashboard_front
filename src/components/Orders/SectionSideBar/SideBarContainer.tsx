@@ -81,6 +81,9 @@ const SideBarContainer: React.FC<{
                 slotProps={{
                   desktopPaper: {
                     sx: {
+                      "& .css-1t3ircd-MuiPickersMonth-monthButton.Mui-disabled": {
+                        color: "grey",
+                      },
                       ".MuiPickersLayout-contentWrapper": {
                         color: "white",
                         backgroundColor: "#0e171c",
@@ -121,6 +124,9 @@ const SideBarContainer: React.FC<{
                 slotProps={{
                   desktopPaper: {
                     sx: {
+                      "& .css-1t3ircd-MuiPickersMonth-monthButton.Mui-disabled": {
+                        color: "grey",
+                      },
                       ".MuiPickersLayout-contentWrapper": {
                         color: "white",
                         backgroundColor: "#0e171c",

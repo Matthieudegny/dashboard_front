@@ -66,3 +66,37 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Pour Firefox */
+/* Track */
+::-moz-scrollbar {
+  width: 10px;
+}
+
+/* Handle */
+::-moz-scrollbar-thumb {
+  background: #888;
+}
+
+/* Appliquer le style à toutes les scrollbars */
+* {
+  scrollbar-width: thin; /* Pour Firefox */
+  scrollbar-color: #888 transparent; /* Pour Firefox */
+}
+
+*::-webkit-scrollbar {
+  width: 10px; /* Pour Chrome */
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #888; /* Pour Chrome */
+}

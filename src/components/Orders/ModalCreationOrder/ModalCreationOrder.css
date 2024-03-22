@@ -1,0 +1,95 @@
+@import "../../../style/index.css";
+
+.modal_container {
+  width: 60vw;
+  height: 71%;
+  max-height: 100%;
+  overflow-y: auto;
+  position: relative;
+  padding: 4vh;
+  background-color: #0e2530;
+  border-radius: 8px;
+}
+.container_form {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s ease-in-out;
+}
+.section_top {
+  display: flex;
+  justify-content: space-around;
+  max-width: 100%;
+  transition: all 0.5 ease-in-out;
+  padding-bottom: 2vh;
+}
+.section_top_half {
+  transition: all 0.5s ease-in-out;
+  width: 40%;
+}
+.section_bottom {
+  width: 90%;
+  margin: auto;
+  transition: all 0.5 ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+.section_middle {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s ease-in-out;
+}
+.modal_creation_form_container {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  padding-top: 2vh;
+  width: 100%;
+}
+.modal_creation_form_container_row {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3%;
+  width: 100%;
+}
+
+.rowContainerImageToDisplay:hover .show_button {
+  display: flex;
+}
+.rowContainerImageToDisplay:hover {
+  background-color: var(--backgroundItemLighter);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Pour Firefox */
+/* Track */
+::-moz-scrollbar {
+  width: 10px;
+}
+
+/* Handle */
+::-moz-scrollbar-thumb {
+  background: #888;
+}
+
+/* Appliquer le style à toutes les scrollbars */
+* {
+  scrollbar-width: thin; /* Pour Firefox */
+  scrollbar-color: #888 transparent; /* Pour Firefox */
+}
+
+*::-webkit-scrollbar {
+  width: 10px; /* Pour Chrome */
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #888; /* Pour Chrome */
+}

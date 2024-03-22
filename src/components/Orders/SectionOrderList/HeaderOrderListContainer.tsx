@@ -9,13 +9,13 @@ import "./SectionOrderList.css";
 import AddIcon from "@mui/icons-material/Add";
 
 //component
-import ModalCreationOrder from "../ModalCreationOrder";
+import ModalCreationOrderContainer from "../ModalCreationOrder/ModalCreationOrderContainer";
 
 const HeaderOrderListContainer: React.FC<{
   setshowAllSubOrdersList: React.Dispatch<React.SetStateAction<boolean>>;
   showAllSubOrdersList: boolean;
 }> = ({ setshowAllSubOrdersList, showAllSubOrdersList }) => {
-  const [showModalCreationOrder, setshowModalCreationOrder] = useState(false);
+  const [showModalCreationOrder, setshowModalCreationOrder] = useState(true);
   return (
     <div className="headerOrdersList_container fromOpacity0to1">
       <div
@@ -31,11 +31,10 @@ const HeaderOrderListContainer: React.FC<{
           className="checkbox_showAllSubOrders"
           sx={{ marginLeft: "0.1vh" }}
         />
-        <Button onClick={() => setshowModalCreationOrder(true)}>
-          <AddIcon sx={{ pr: 0.5 }} />
+        <Button startIcon={<AddIcon />} onClick={() => setshowModalCreationOrder(true)}>
           Create Order
         </Button>
-        <ModalCreationOrder showModalCreationOrder={showModalCreationOrder} setshowModalCreationOrder={setshowModalCreationOrder} />
+        <ModalCreationOrderContainer showModalCreationOrder={showModalCreationOrder} setshowModalCreationOrder={setshowModalCreationOrder} />
       </div>
       <div
         style={{

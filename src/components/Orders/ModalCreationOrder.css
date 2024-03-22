@@ -1,6 +1,0 @@
-.modal_container {
-  width: calc(100% - 4vh);
-  height: calc(100% - 4vh);
-  position: relative;
-  padding: 2vh;
-}

@@ -1,4 +1,4 @@
-import { SetupType, FailureType } from "../Categories/model_catgories";
+import { SetupGoType, SetupSoType, FailureGoType, FailureSoType } from "../Categories/model_catgories";
 import { GlobalOrderFillWithDatasDto } from "../Order/model_order";
 
 export interface bodyRequestLoginType {
@@ -15,8 +15,10 @@ export interface ResponseLoginType {
 
 export interface ResponseGetMainDatasByIdUserType {
   globalOrderList: Array<GlobalOrderFillWithDatasDto>;
-  setupList: Array<SetupType>;
-  failureList: Array<FailureType>;
+  setupGoList: Array<SetupGoType>;
+  setupSoList: Array<SetupSoType>;
+  failureGoList: Array<FailureGoType>;
+  failureSoList: Array<FailureSoType>;
 }
 
 export interface DecodedToken {

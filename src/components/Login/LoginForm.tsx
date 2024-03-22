@@ -48,7 +48,7 @@ const LoginForm: React.FC<{
         <Box>
           <TextField id="login" label="Login" variant="outlined" fullWidth {...register("login")} />
         </Box>
-        <Box className=" w-[100%] ">
+        <Box>
           <TextField id="password" label="Password" type="password" variant="outlined" fullWidth {...register("password")} />
         </Box>
       </div>
