@@ -120,11 +120,12 @@ const theme = createTheme({
           padding: "4px",
           color: "white",
           borderRadius: "8px", // Coins arrondis
-          "&:hover": {
-            backgroundColor: "var(--backgroundItemLighter)",
-            color: "white",
-            borderRadius: "8px", // Coins arrondis au survol
-          },
+          // backgroundColor: "white",
+          // "&:hover": {
+          //   backgroundColor: "var(--backgroundItemLighter)",
+          //   color: "white",
+          //   borderRadius: "8px", // Coins arrondis au survol
+          // },
         },
       },
     },

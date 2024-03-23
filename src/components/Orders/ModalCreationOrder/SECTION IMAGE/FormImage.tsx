@@ -1,26 +1,15 @@
 //form related to the download of an image and the creation of an object ImageFrontType
 //= title + description + image
 //feature Insert and Creation object ImageFrontType
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-import { Editor } from "@tiptap/react";
-import BulletList from "@tiptap/extension-bullet-list";
-import Code from "@tiptap/extension-code";
-import Document from "@tiptap/extension-document";
-import Focus from "@tiptap/extension-focus";
-import ListItem from "@tiptap/extension-list-item";
-import Paragraph from "@tiptap/extension-paragraph";
-import Text from "@tiptap/extension-text";
-import { EditorContent, useEditor } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-
 import "../ModalCreationOrder.css";
 
 //component
-import ToolbarEditorText from "../../../TextEditor/ToolBar";
+import ContainerTextEditor from "../../../TextEditor/ContainerTextEditor";
 
 //style
 import { textfieldWithErrorMode } from "../../../../style/TextfieldWithErrorMode";
@@ -51,70 +40,27 @@ const FormImage: React.FC<{
   setlistImageWithTitle: React.Dispatch<React.SetStateAction<ImageFrontType[]>>;
   listImageWithTitle: ImageFrontType[];
 }> = ({ setlistImageWithTitle, listImageWithTitle }) => {
-  // Creates a new editor instance.
-  // const editor = useCreateBlockNote();
-
   const [statutError, setstatutError] = useState({
     titleEmpty: false,
     descriptionEmpty: false,
     imageEmpty: false,
   });
+
   //hook to upload and create an object ImageFrontType + handle error form
-
-  const { imageCreating, setimageCreating, handleUploadImage, handleCreateImage } = useCreateImage(listImageWithTitle, setlistImageWithTitle, setstatutError, statutError);
-
-  const extensions = [StarterKit];
-
-  const content = "<p>Hello World!</p>";
-
-  const editor: any = useEditor({
-    extensions: [
-      Document,
-      Paragraph,
-      Text,
-      Focus.configure({
-        className: "has-focus",
-        mode: "all",
-      }),
-      Code,
-      BulletList,
-      ListItem,
-    ],
-    autofocus: true,
-    content,
-    onUpdate: ({ editor }) => {
-      console.log("JSON", editor.getJSON());
-      console.log("HTML", editor.getHTML());
-    },
-    editorProps: {
-      attributes: {
-        class: "editor",
-      },
-    },
-  });
+  const { imageCreating, setimageCreating, handleUploadImage, handleCreateImage, contentTitleImage, setcontentTitleImage, contentDescriptionImage, setcontentDescriptionImage } = useCreateImage(
+    listImageWithTitle,
+    setlistImageWithTitle,
+    setstatutError,
+    statutError
+  );
 
   return (
     <>
-      <div>
-        <ToolbarEditorText editor={editor} />
+      <ContainerTextEditor contentState={contentTitleImage} setContentState={setcontentTitleImage} isEditable={true} size={"short"} title={"Title image"} showTitle={true} />
 
-        <EditorContent editor={editor} />
-      </div>
-      <div className="modal_creation_form_container_row">
-        {/* <TextField
-          fullWidth
-          name="titleImage"
-          value={imageCreating.title}
-          label="Title Image"
-          type="text"
-          onChange={(event) => {
-            if (event.target.value !== "" && statutError.titleEmpty) setstatutError((prev) => ({ ...prev, titleEmpty: false }));
-            setimageCreating((prev) => ({ ...prev, title: event.target.value }));
-          }}
-          sx={textfieldWithErrorMode(statutError.titleEmpty)}
-        /> */}
-      </div>
-      <div className="modal_creation_form_container_row">
+      <ContainerTextEditor contentState={contentDescriptionImage} setContentState={setcontentDescriptionImage} isEditable={true} size={"long"} title={"Description image"} showTitle={true} />
+
+      {/* <div className="modal_creation_form_container_row">
         <TextField
           value={imageCreating.description}
           name="descriptionImage"
@@ -128,7 +74,7 @@ const FormImage: React.FC<{
             setimageCreating((prev) => ({ ...prev, description: event.target.value }));
           }}
         />
-      </div>
+      </div> */}
       <div
         style={{
           display: "flex",

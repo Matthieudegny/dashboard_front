@@ -100,23 +100,21 @@
 }
 
 .fromHeight100to0 {
-  animation: fromHeight100to0 0.4s forwards;
-  transform-origin: bottom;
+  grid-template-rows: 0fr;
+  animation: fromHeight100to0 0.5s forwards ease-out;
 }
 
 @keyframes fromHeight100to0 {
-  from {
-    height: 300px;
-    transform: scaleY(1);
+  0% {
+    opacity: 1;
   }
-  to {
-    height: 0px;
-    transform: scaleY(0);
+  100% {
+    opacity: 0;
   }
 }
 
 .fromHeight0to100 {
-  animation: fromHeight0to100 0.5s forwards ease-in-out;
+  animation: fromHeight0to100 0.2s forwards ease-in-out;
   transform-origin: top;
 }
 

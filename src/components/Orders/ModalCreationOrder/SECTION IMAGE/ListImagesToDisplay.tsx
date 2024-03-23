@@ -19,6 +19,9 @@ const ListImagesToDisplay: React.FC<{
         gap: "1vh",
         justifyContent: "center",
         alignItems: "center",
+        overflow: "hidden",
+        height: "100%",
+        transition: "height 0.5s ease-out",
       }}
     >
       {listImageOrder.length > 0

@@ -11,7 +11,7 @@ import LooksOneIcon from "@mui/icons-material/LooksOne";
 import LooksTwoIcon from "@mui/icons-material/LooksTwo";
 import Looks3Icon from "@mui/icons-material/Looks3";
 
-import "./ToolBar.css";
+import "./EditorText.css";
 
 export const ToolbarEditorText: React.FC<{ editor: Editor }> = ({ editor }) => {
   if (!editor) return null;
@@ -37,7 +37,7 @@ export const ToolbarEditorText: React.FC<{ editor: Editor }> = ({ editor }) => {
   const styleIsActive = (effect: string) => {
     return {
       color: isActive(effect) ? "white" : "white",
-      backgroundColor: isActive(effect) ? "#15c5e0" : "",
+      //   backgroundColor: isActive(effect) ? "#15c5e0" : "",
     };
   };
 
@@ -59,25 +59,25 @@ export const ToolbarEditorText: React.FC<{ editor: Editor }> = ({ editor }) => {
           boxShadow: "0 0 5px rgba(0, 0, 0, 0.1)",
         }}
       >
-        <IconButton onClick={() => editor.chain().focus().toggleBold().run()} sx={styleIsActive("bold")}>
+        <IconButton onClick={() => editor.chain().focus().toggleBold().run()} className={`iconToolBar ${editor.isActive("bold") ? "is-active" : ""}`}>
           <FormatBoldIcon sx={{ fontSize: "20px" }} />
         </IconButton>
-        <IconButton onClick={() => editor.chain().focus().toggleItalic().run()} sx={styleIsActive("italic")}>
+        <IconButton onClick={() => editor.chain().focus().toggleItalic().run()} className={`iconToolBar ${editor.isActive("italic") ? "is-active" : ""}`}>
           <FormatItalicIcon sx={{ fontSize: "20px" }} />
         </IconButton>
-        <IconButton onClick={toggleUnderline} sx={styleIsActive("underline")}>
+        <IconButton onClick={toggleUnderline} className={`iconToolBar ${editor.isActive("underline") ? "is-active" : ""}`}>
           <FormatUnderlinedIcon sx={{ fontSize: "20px" }} />
         </IconButton>
         {/* <IconButton onClick={() => editor.chain().focus().toggleStrikethrough().run()} className={isActive("strike") ? "is-active" : ""}>
           <StrikethroughSIcon />
         </IconButton> */}
-        <IconButton onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()} sx={styleIsActiveTitle(1)}>
+        <IconButton onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()} className={`iconToolBar ${editor.isActive("heading", { level: 1 }) ? "is-active" : ""}`}>
           <Box sx={{ fontSize: "14px", padding: "2px" }}>H1</Box>
         </IconButton>
-        <IconButton onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} sx={styleIsActiveTitle(2)}>
+        <IconButton onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} className={`iconToolBar ${editor.isActive("heading", { level: 2 }) ? "is-active" : ""}`}>
           <Box sx={{ fontSize: "14px", padding: "2px" }}>H2</Box>
         </IconButton>
-        <IconButton onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} sx={styleIsActiveTitle(3)}>
+        <IconButton onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} className={`iconToolBar ${editor.isActive("heading", { level: 3 }) ? "is-active" : ""}`}>
           <Box sx={{ fontSize: "14px", padding: "2px" }}>H3</Box>
         </IconButton>
         {/* <IconButton onClick={() => toggleHeading(2)} className={isActive("heading", { level: 2 }) && !isActive("paragraph") ? "is-active" : ""}>

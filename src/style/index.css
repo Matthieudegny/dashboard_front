@@ -1,7 +1,6 @@
 @import "./color.css";
 @import "./fonts.css";
 @import "./animations.css";
-@import "./textEditor.css";
 
 :root {
   background-color: var(--backgroundColor);

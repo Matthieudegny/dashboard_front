@@ -9,17 +9,21 @@ export const useCreateImage = (
   setstatutError: React.Dispatch<React.SetStateAction<{ titleEmpty: boolean; descriptionEmpty: boolean; imageEmpty: boolean }>>,
   statutError: { titleEmpty: boolean; descriptionEmpty: boolean; imageEmpty: boolean }
 ): {
-  imageCreating: ImageFrontType;
-  setimageCreating: React.Dispatch<React.SetStateAction<ImageFrontType>>;
+  imageCreating: { id: number; image: string };
+  setimageCreating: React.Dispatch<React.SetStateAction<{ id: number; image: string }>>;
   handleUploadImage: (event: any) => void;
   handleCreateImage: () => void;
+  contentTitleImage: string;
+  setcontentTitleImage: React.Dispatch<React.SetStateAction<string>>;
+  contentDescriptionImage: string;
+  setcontentDescriptionImage: React.Dispatch<React.SetStateAction<string>>;
 } => {
-  const [imageCreating, setimageCreating] = useState<ImageFrontType>({
+  const [imageCreating, setimageCreating] = useState({
     id: 0,
-    title: "",
     image: "",
-    description: "",
   });
+  const [contentTitleImage, setcontentTitleImage] = useState("");
+  const [contentDescriptionImage, setcontentDescriptionImage] = useState("");
 
   //i catch the last id of listImageWithTitle, and get a new id to the new image
   useEffect(() => {
@@ -56,11 +60,6 @@ export const useCreateImage = (
     try {
       const image = await readFileAsync(imageFile);
       console.log("image", image);
-      const newImage = {
-        title: "",
-        image: image,
-      };
-      console.log("newImage", newImage);
       if (statutError.imageEmpty) setstatutError((prev) => ({ ...prev, imageEmpty: false }));
       setimageCreating((prev) => ({ ...prev, image: image }));
     } catch (error) {
@@ -69,11 +68,11 @@ export const useCreateImage = (
   };
 
   const handleCreateImage = () => {
-    if (imageCreating.title === "") {
+    if (contentTitleImage === "") {
       setstatutError((prev) => ({ ...prev, titleEmpty: true }));
       return;
     }
-    if (imageCreating.description === "") {
+    if (contentDescriptionImage === "") {
       setstatutError((prev) => ({ ...prev, descriptionEmpty: true }));
       return;
     }
@@ -83,16 +82,23 @@ export const useCreateImage = (
     }
     console.log("imageCreating", imageCreating);
     let arrayCloned = structuredClone(listImageWithTitle);
-    arrayCloned.unshift(imageCreating);
+    const newImage: ImageFrontType = {
+      id: imageCreating.id,
+      title: contentTitleImage,
+      image: imageCreating.image,
+      description: contentDescriptionImage,
+    };
+    console.log("newImage", newImage);
+    arrayCloned.unshift(newImage);
     setlistImageWithTitle(arrayCloned);
 
+    setcontentTitleImage("");
+    setcontentDescriptionImage("");
     setimageCreating({
       id: 0,
-      title: "",
       image: "",
-      description: "",
     });
   };
 
-  return { imageCreating, setimageCreating, handleUploadImage, handleCreateImage };
+  return { imageCreating, setimageCreating, handleUploadImage, handleCreateImage, contentTitleImage, setcontentTitleImage, contentDescriptionImage, setcontentDescriptionImage };
 };

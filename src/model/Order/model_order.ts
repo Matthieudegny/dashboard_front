@@ -70,3 +70,13 @@ export interface ImageFrontType {
   image: string;
   description: string;
 }
+
+//text editor
+export interface TextEditorType {
+  contentState: string;
+  setContentState: React.Dispatch<React.SetStateAction<string>> | ((newValue: string) => void);
+  isEditable: boolean;
+  size: "short" | "long";
+  title: string;
+  showTitle: boolean;
+}

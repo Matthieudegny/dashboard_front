@@ -1,0 +1,46 @@
+@import "../../style/index.css";
+
+.iconToolBar:hover {
+  background-color: var(--backgroundItemLighter) !important;
+}
+.is-active {
+  background-color: var(--colorItemPrimary) !important;
+}
+
+.ProseMirror:focus {
+  outline: none;
+}
+.editor {
+  width: calc(100% - 22px);
+  height: 100%;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.editable {
+  border: 1px solid white;
+  max-height: 250px;
+}
+
+.readOnly {
+  border: 1px solid #e0e0e0;
+  cursor: initial;
+  max-height: 100%;
+}
+
+.ProseMirror-focused {
+  color: white;
+  border-radius: 8px;
+  border: 1px solid #15c5e0;
+}
+
+.short {
+  max-height: 80px;
+  overflow-y: auto;
+}
+
+.long {
+  min-height: 100px;
+  max-height: 150px;
+  overflow-y: auto;
+}
