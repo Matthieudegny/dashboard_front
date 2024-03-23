@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
-import { Editor } from "@tiptap/react";
-import BulletList from "@tiptap/extension-bullet-list";
-import Code from "@tiptap/extension-code";
-import Document from "@tiptap/extension-document";
-import Focus from "@tiptap/extension-focus";
-import ListItem from "@tiptap/extension-list-item";
-import Paragraph from "@tiptap/extension-paragraph";
-import Text from "@tiptap/extension-text";
+
+import Underline from "@tiptap/extension-underline";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
@@ -19,13 +13,13 @@ import ToolbarEditorText from "./ToolBar";
 //model
 import { TextEditorType } from "../../model/Order/model_order";
 
-const ContainerTextEditor: React.FC<TextEditorType> = ({ contentState, setContentState, isEditable, size, title, showTitle }) => {
+const ContainerTextEditor: React.FC<TextEditorType> = ({ contentState, setContentState, isEditable, size, title, showTitle, statutIsError }) => {
   //   const content = "<p>Hello World!</p>";
   const [contentEditor, setcontentEditor] = useState("");
 
   const extensions = [StarterKit];
   const editor: any = useEditor({
-    extensions,
+    extensions: [StarterKit, Underline],
     editable: isEditable,
     content: contentState,
     onUpdate: ({ editor }) => {
@@ -51,13 +45,13 @@ const ContainerTextEditor: React.FC<TextEditorType> = ({ contentState, setConten
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "0.5vw",
+        gap: "0.2vw",
         width: "100%",
       }}
     >
       {showTitle ? (
-        <Typography variant="h6" component="label">
-          {title}:
+        <Typography variant="h5" component="label" color={statutIsError ? "error" : ""}>
+          {title}: {statutIsError ? <span style={{ fontStyle: "italic", fontSize: "1rem" }}>Please fill out this field</span> : ""}
         </Typography>
       ) : null}
 

@@ -49,32 +49,31 @@ const ImageToDisplay: React.FC<{
         style={{
           display: "flex",
           justifyContent: "space-around",
-          width: "80%",
+          width: "100%",
         }}
       >
         <div
           style={{
-            width: "50%",
             display: "flex",
             justifyContent: "center",
             margin: "2vh",
+            width: "50%",
           }}
         >
-          <img src={imageOrder.image} alt="image" style={{ width: "80%", height: "250px", margin: "auto" }} />
+          <img src={imageOrder.image} alt="image" style={{ width: "100%", height: "350px", margin: "auto" }} />
         </div>
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
-            gap: "2vh",
+            gap: "1vh",
             padding: "10px",
             width: "45%",
             paddingLeft: "5%",
           }}
         >
-          <ContainerTextEditor contentState={imageOrder.title} setContentState={handleUpdateTitle} isEditable={false} size={"short"} title={""} showTitle={false} />
-          <ContainerTextEditor contentState={imageOrder.description} setContentState={handleUpdateDescription} isEditable={false} size={"short"} title={""} showTitle={false} />
+          <ContainerTextEditor contentState={imageOrder.title} setContentState={handleUpdateTitle} isEditable={false} size={"short"} title={""} showTitle={false} statutIsError={false} />
+          <ContainerTextEditor contentState={imageOrder.description} setContentState={handleUpdateDescription} isEditable={false} size={"short"} title={""} showTitle={false} statutIsError={false} />
           {/* <Typography variant="h6">{imageOrder.title}</Typography>
         <Typography variant="h6">{imageOrder.description}</Typography> */}
         </div>
@@ -86,6 +85,9 @@ const ImageToDisplay: React.FC<{
             right: "10px",
             top: "10px",
             display: "none",
+            "&:hover": {
+              backgroundColor: "var(--backgroundItemLight)",
+            },
           }}
           onClick={() => handleDeleteImageRow(index)}
         >

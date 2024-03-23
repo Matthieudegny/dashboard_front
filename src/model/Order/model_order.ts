@@ -79,4 +79,5 @@ export interface TextEditorType {
   size: "short" | "long";
   title: string;
   showTitle: boolean;
+  statutIsError: boolean;
 }

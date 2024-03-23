@@ -1,7 +1,7 @@
 @import "../../../style/index.css";
 
 .modal_container {
-  width: 60vw;
+  width: 70vw;
   height: 93%;
   max-height: 100%;
   overflow-y: auto;

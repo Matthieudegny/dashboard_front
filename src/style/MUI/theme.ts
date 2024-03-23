@@ -41,7 +41,9 @@ const theme = createTheme({
     secondary: {
       main: "#15c5e0",
     },
-
+    error: {
+      main: "#7c5ed4",
+    },
     action: {
       disabledBackground: "#15c5e0",
       disabled: "#FFFFFF",

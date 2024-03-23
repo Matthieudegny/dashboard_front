@@ -68,19 +68,26 @@ export const useCreateImage = (
   };
 
   const handleCreateImage = () => {
+    //handle errors
     if (contentTitleImage === "") {
       setstatutError((prev) => ({ ...prev, titleEmpty: true }));
       return;
+    } else {
+      if (statutError.titleEmpty) setstatutError((prev) => ({ ...prev, titleEmpty: false }));
     }
     if (contentDescriptionImage === "") {
       setstatutError((prev) => ({ ...prev, descriptionEmpty: true }));
       return;
+    } else {
+      if (statutError.descriptionEmpty) setstatutError((prev) => ({ ...prev, descriptionEmpty: false }));
     }
     if (imageCreating.image === "") {
       setstatutError((prev) => ({ ...prev, imageEmpty: true }));
       return;
     }
     console.log("imageCreating", imageCreating);
+
+    //creation of the enw object ImageFrontType
     let arrayCloned = structuredClone(listImageWithTitle);
     const newImage: ImageFrontType = {
       id: imageCreating.id,
@@ -90,8 +97,11 @@ export const useCreateImage = (
     };
     console.log("newImage", newImage);
     arrayCloned.unshift(newImage);
+
+    //add to the list
     setlistImageWithTitle(arrayCloned);
 
+    //reset the form
     setcontentTitleImage("");
     setcontentDescriptionImage("");
     setimageCreating({

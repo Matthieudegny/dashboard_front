@@ -5,11 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import FormatBoldIcon from "@mui/icons-material/FormatBold";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
-import StrikethroughSIcon from "@mui/icons-material/StrikethroughS";
-import Typography from "@mui/material/Typography";
-import LooksOneIcon from "@mui/icons-material/LooksOne";
-import LooksTwoIcon from "@mui/icons-material/LooksTwo";
-import Looks3Icon from "@mui/icons-material/Looks3";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 
 import "./EditorText.css";
 
@@ -24,28 +20,6 @@ export const ToolbarEditorText: React.FC<{ editor: Editor }> = ({ editor }) => {
     } else {
       editor.chain().focus().toggleMark("underline").run();
     }
-  };
-
-  //   const toggleHeading = (level: number) => {
-  //     if (isActive("heading", { level })) {
-  //       editor.chain().focus().setParagraph().run();
-  //     } else {
-  //       editor.chain().focus().toggleHeading({ level }).run();
-  //     }
-  //   };
-
-  const styleIsActive = (effect: string) => {
-    return {
-      color: isActive(effect) ? "white" : "white",
-      //   backgroundColor: isActive(effect) ? "#15c5e0" : "",
-    };
-  };
-
-  const styleIsActiveTitle = (level: number) => {
-    return {
-      color: editor.isActive("heading", { level }) ? "white" : "white",
-      backgroundColor: editor.isActive("heading", { level }) ? "#15c5e0" : "",
-    };
   };
 
   return (
@@ -80,6 +54,10 @@ export const ToolbarEditorText: React.FC<{ editor: Editor }> = ({ editor }) => {
         <IconButton onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} className={`iconToolBar ${editor.isActive("heading", { level: 3 }) ? "is-active" : ""}`}>
           <Box sx={{ fontSize: "14px", padding: "2px" }}>H3</Box>
         </IconButton>
+        <IconButton onClick={() => editor.chain().focus().toggleBulletList().run()} className={editor.isActive("bulletList") ? "is-active" : ""}>
+          <FormatListBulletedIcon sx={{ fontSize: "20px" }} />
+        </IconButton>
+
         {/* <IconButton onClick={() => toggleHeading(2)} className={isActive("heading", { level: 2 }) && !isActive("paragraph") ? "is-active" : ""}>
           <LooksTwoIcon />
         </IconButton>

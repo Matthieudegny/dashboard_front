@@ -6,6 +6,9 @@
 .is-active {
   background-color: var(--colorItemPrimary) !important;
 }
+.is-active:hover {
+  background-color: var(--colorItemPrimary) !important;
+}
 
 .ProseMirror:focus {
   outline: none;

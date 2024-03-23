@@ -1,7 +1,7 @@
 //form related to the download of an image and the creation of an object ImageFrontType
 //= title + description + image
 //feature Insert and Creation object ImageFrontType
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -54,11 +54,15 @@ const FormImage: React.FC<{
     statutError
   );
 
+  useEffect(() => {
+    console.log("statutError", statutError);
+  }, [statutError]);
+
   return (
     <>
-      <ContainerTextEditor contentState={contentTitleImage} setContentState={setcontentTitleImage} isEditable={true} size={"short"} title={"Title image"} showTitle={true} />
+      <ContainerTextEditor contentState={contentTitleImage} setContentState={setcontentTitleImage} isEditable={true} size={"short"} title={"Title image"} showTitle={true} statutIsError={statutError.titleEmpty} />
 
-      <ContainerTextEditor contentState={contentDescriptionImage} setContentState={setcontentDescriptionImage} isEditable={true} size={"long"} title={"Description image"} showTitle={true} />
+      <ContainerTextEditor contentState={contentDescriptionImage} setContentState={setcontentDescriptionImage} isEditable={true} size={"long"} title={"Description image"} showTitle={true} statutIsError={statutError.descriptionEmpty} />
 
       {/* <div className="modal_creation_form_container_row">
         <TextField
@@ -85,7 +89,7 @@ const FormImage: React.FC<{
         <Button
           variant="outlined"
           sx={{
-            height: "55px",
+            height: "35px",
             borderColor: statutError.imageEmpty ? "var(--colorItemSecondary)" : undefined, // Change border color if there is an statutError.imageEmpty
             "&:hover": {
               borderColor: statutError.imageEmpty ? "var(--colorItemSecondary)" : undefined, // Change border color on hover if there is an error
@@ -94,13 +98,18 @@ const FormImage: React.FC<{
             color: statutError.imageEmpty ? "var(--colorItemSecondary)" : undefined, // Change text color if there is an error
           }}
           component="label"
-          role={undefined}
           startIcon={imageCreating.image ? <CheckIcon /> : <CloudUploadIcon />}
         >
           {imageCreating.image ? <ImageIcon /> : "Upload image"}
           <VisuallyHiddenInput type="file" onChange={(e) => handleUploadImage(e)} />
         </Button>
-        <Button variant="outlined" onClick={handleCreateImage}>
+        <Button
+          sx={{
+            height: "35px",
+          }}
+          variant="outlined"
+          onClick={handleCreateImage}
+        >
           Create image
         </Button>
       </div>
