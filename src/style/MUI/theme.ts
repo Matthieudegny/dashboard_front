@@ -67,6 +67,22 @@ const theme = createTheme({
         },
       },
     },
+    MuiToolbar: {
+      styleOverrides: {
+        regular: {
+          minHeight: "38px",
+          paddingLeft: "5px",
+          "@media (min-width: 600px)": {
+            minHeight: "38px",
+            paddingLeft: "5px",
+          },
+
+          borderRadius: "8px",
+          marginBottom: "10px",
+          border: "1px solid white",
+        },
+      },
+    },
     MuiCheckbox: {
       styleOverrides: {
         root: {
@@ -101,12 +117,11 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontSize: "24px",
-
           padding: "4px",
-          color: "#15c5e0",
+          color: "white",
           borderRadius: "8px", // Coins arrondis
           "&:hover": {
-            backgroundColor: "#15c5e0",
+            backgroundColor: "var(--backgroundItemLighter)",
             color: "white",
             borderRadius: "8px", // Coins arrondis au survol
           },

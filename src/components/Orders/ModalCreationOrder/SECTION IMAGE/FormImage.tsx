@@ -1,32 +1,26 @@
 //form related to the download of an image and the creation of an object ImageFrontType
 //= title + description + image
 //feature Insert and Creation object ImageFrontType
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-import "@blocknote/core/fonts/inter.css";
-// import { BlockNoteView, useCreateBlockNote } from "@blocknote/react";
-import "@blocknote/react/style.css";
-import { Block } from "@blocknote/core";
-import {
-  BasicTextStyleButton,
-  BlockNoteView,
-  BlockTypeSelect,
-  ColorStyleButton,
-  CreateLinkButton,
-  FormattingToolbar,
-  FormattingToolbarController,
-  ImageCaptionButton,
-  NestBlockButton,
-  ReplaceImageButton,
-  TextAlignButton,
-  UnnestBlockButton,
-  useCreateBlockNote,
-} from "@blocknote/react";
+import { Editor } from "@tiptap/react";
+import BulletList from "@tiptap/extension-bullet-list";
+import Code from "@tiptap/extension-code";
+import Document from "@tiptap/extension-document";
+import Focus from "@tiptap/extension-focus";
+import ListItem from "@tiptap/extension-list-item";
+import Paragraph from "@tiptap/extension-paragraph";
+import Text from "@tiptap/extension-text";
+import { EditorContent, useEditor } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
 
 import "../ModalCreationOrder.css";
+
+//component
+import ToolbarEditorText from "../../../TextEditor/ToolBar";
 
 //style
 import { textfieldWithErrorMode } from "../../../../style/TextfieldWithErrorMode";
@@ -58,7 +52,7 @@ const FormImage: React.FC<{
   listImageWithTitle: ImageFrontType[];
 }> = ({ setlistImageWithTitle, listImageWithTitle }) => {
   // Creates a new editor instance.
-  const editor = useCreateBlockNote();
+  // const editor = useCreateBlockNote();
 
   const [statutError, setstatutError] = useState({
     titleEmpty: false,
@@ -66,49 +60,47 @@ const FormImage: React.FC<{
     imageEmpty: false,
   });
   //hook to upload and create an object ImageFrontType + handle error form
+
   const { imageCreating, setimageCreating, handleUploadImage, handleCreateImage } = useCreateImage(listImageWithTitle, setlistImageWithTitle, setstatutError, statutError);
 
-  const [blocks, setBlocks] = useState<Block[]>([]);
+  const extensions = [StarterKit];
+
+  const content = "<p>Hello World!</p>";
+
+  const editor: any = useEditor({
+    extensions: [
+      Document,
+      Paragraph,
+      Text,
+      Focus.configure({
+        className: "has-focus",
+        mode: "all",
+      }),
+      Code,
+      BulletList,
+      ListItem,
+    ],
+    autofocus: true,
+    content,
+    onUpdate: ({ editor }) => {
+      console.log("JSON", editor.getJSON());
+      console.log("HTML", editor.getHTML());
+    },
+    editorProps: {
+      attributes: {
+        class: "editor",
+      },
+    },
+  });
 
   return (
     <>
+      <div>
+        <ToolbarEditorText editor={editor} />
+
+        <EditorContent editor={editor} />
+      </div>
       <div className="modal_creation_form_container_row">
-        <div className="wrapper">
-          <div className="item">
-            <BlockNoteView
-              sideMenu={false}
-              editor={editor}
-              formattingToolbar={false}
-              onChange={() => {
-                // Saves the document JSON to state.
-                setBlocks(editor.document);
-              }}
-              imageToolbar={false}
-              data-theming-css-variables-demo
-            >
-              <FormattingToolbarController
-                formattingToolbar={() => (
-                  <FormattingToolbar>
-                    <BlockTypeSelect key={"blockTypeSelect"} />
-
-                    {/* Extra button to toggle blue text & background */}
-                    {/* <BlueButton key={"customButton"} /> */}
-
-                    <ImageCaptionButton key={"imageCaptionButton"} />
-                    <ReplaceImageButton key={"replaceImageButton"} />
-
-                    <BasicTextStyleButton basicTextStyle={"bold"} key={"boldStyleButton"} />
-                    <BasicTextStyleButton basicTextStyle={"italic"} key={"italicStyleButton"} />
-                    <BasicTextStyleButton basicTextStyle={"underline"} key={"underlineStyleButton"} />
-                    <BasicTextStyleButton basicTextStyle={"strike"} key={"strikeStyleButton"} />
-
-                    <ColorStyleButton key={"colorStyleButton"} />
-                  </FormattingToolbar>
-                )}
-              />
-            </BlockNoteView>
-          </div>
-        </div>
         {/* <TextField
           fullWidth
           name="titleImage"
