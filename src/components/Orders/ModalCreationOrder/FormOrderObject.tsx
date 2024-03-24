@@ -16,7 +16,7 @@ import FormListSetup from "./FormListSetup";
 const FormOrderObject = () => {
   return (
     <div className="modal_creation_form_container">
-      <Typography variant="h5">Order:</Typography>
+      <Typography variant="h5">Order informations:</Typography>
       <div className="modal_creation_form_container_row">
         <TextField name="asset" label="Asset" sx={{ width: "33%" }} />
         <FormControl sx={{ width: "33%" }}>
@@ -148,6 +148,9 @@ const FormOrderObject = () => {
           // }}
         />
       </div>
+      <Typography sx={{ pt: "1vh" }} variant="h5">
+        Setup chosen:
+      </Typography>
       <div className="modal_creation_form_container_row">
         <FormListSetup />
       </div>

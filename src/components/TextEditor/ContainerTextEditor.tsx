@@ -14,10 +14,8 @@ import ToolbarEditorText from "./ToolBar";
 import { TextEditorType } from "../../model/Order/model_order";
 
 const ContainerTextEditor: React.FC<TextEditorType> = ({ contentState, setContentState, isEditable, size, title, showTitle, statutIsError }) => {
-  //   const content = "<p>Hello World!</p>";
   const [contentEditor, setcontentEditor] = useState("");
 
-  const extensions = [StarterKit];
   const editor: any = useEditor({
     extensions: [StarterKit, Underline],
     editable: isEditable,
@@ -28,35 +26,41 @@ const ContainerTextEditor: React.FC<TextEditorType> = ({ contentState, setConten
     },
     editorProps: {
       attributes: {
-        class: `editor ${isEditable ? (size === "short" ? "short" : "long") : ""} ${isEditable ? "editable" : "read-only"}`,
+        class: `editor ${isEditable ? (size === "short" ? "short" : "long") : ""} ${isEditable ? "editable" : ""} `,
       },
     },
   });
 
   useEffect(() => {
-    //if contentState is === "", i clear the editor
+    //if contentState is === "" && some content is present, i clear the editor
     if (contentState === "" && contentEditor !== "") {
       editor.commands.setContent("");
     }
   }, [contentState]);
+
+  const key = statutIsError ? "error" : "normal";
 
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "0.2vw",
         width: "100%",
+        marginTop: "-5px",
       }}
     >
       {showTitle ? (
-        <Typography variant="h5" component="label" color={statutIsError ? "error" : ""}>
-          {title}: {statutIsError ? <span style={{ fontStyle: "italic", fontSize: "1rem" }}>Please fill out this field</span> : ""}
+        <Typography sx={{ pb: "0.5vh" }} variant="h6" component="label" color={statutIsError ? "error" : ""}>
+          {title} {statutIsError ? <span style={{ fontStyle: "italic", fontSize: "1rem" }}>Please fill out this field</span> : ""}
         </Typography>
       ) : null}
 
       {isEditable ? (
-        <div>
+        <div
+          style={{
+            display: "block-inline",
+          }}
+        >
           <ToolbarEditorText editor={editor} />
         </div>
       ) : null}

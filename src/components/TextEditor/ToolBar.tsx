@@ -26,7 +26,7 @@ export const ToolbarEditorText: React.FC<{ editor: Editor }> = ({ editor }) => {
     <>
       <Toolbar
         sx={{
-          display: "flex",
+          display: "inline-flex",
           flexDirection: "row",
           gap: "0.7vw",
           borderRadius: "5px",
@@ -42,9 +42,6 @@ export const ToolbarEditorText: React.FC<{ editor: Editor }> = ({ editor }) => {
         <IconButton onClick={toggleUnderline} className={`iconToolBar ${editor.isActive("underline") ? "is-active" : ""}`}>
           <FormatUnderlinedIcon sx={{ fontSize: "20px" }} />
         </IconButton>
-        {/* <IconButton onClick={() => editor.chain().focus().toggleStrikethrough().run()} className={isActive("strike") ? "is-active" : ""}>
-          <StrikethroughSIcon />
-        </IconButton> */}
         <IconButton onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()} className={`iconToolBar ${editor.isActive("heading", { level: 1 }) ? "is-active" : ""}`}>
           <Box sx={{ fontSize: "14px", padding: "2px" }}>H1</Box>
         </IconButton>
@@ -57,49 +54,7 @@ export const ToolbarEditorText: React.FC<{ editor: Editor }> = ({ editor }) => {
         <IconButton onClick={() => editor.chain().focus().toggleBulletList().run()} className={editor.isActive("bulletList") ? "is-active" : ""}>
           <FormatListBulletedIcon sx={{ fontSize: "20px" }} />
         </IconButton>
-
-        {/* <IconButton onClick={() => toggleHeading(2)} className={isActive("heading", { level: 2 }) && !isActive("paragraph") ? "is-active" : ""}>
-          <LooksTwoIcon />
-        </IconButton>
-        <IconButton onClick={() => toggleHeading(3)} className={isActive("heading", { level: 3 }) && !isActive("paragraph") ? "is-active" : ""}>
-          <Looks3Icon />
-        </IconButton> */}
       </Toolbar>
-      {/* <button onClick={() => editor.chain().focus().toggleBold().run()} className={editor.isActive("bold") ? "is-active" : ""}>
-        bold
-      </button>
-      <button onClick={() => editor.chain().focus().toggleItalic().run()} className={editor.isActive("italic") ? "is-active" : ""}>
-        italic
-      </button>
-      <button onClick={() => editor.chain().focus().toggleStrike().run()} className={editor.isActive("strike") ? "is-active" : ""}>
-        strike
-      </button>
-      <button onClick={() => editor.chain().focus().toggleCode().run()} className={editor.isActive("code") ? "is-active" : ""}>
-        code
-      </button>
-      <button onClick={() => editor.chain().focus().unsetAllMarks().run()}>clear marks</button>
-      <button onClick={() => editor.chain().focus().clearNodes().run()}>clear nodes</button>
-      <button onClick={() => editor.chain().focus().setParagraph().run()} className={editor.isActive("paragraph") ? "is-active" : ""}>
-        paragraph
-      </button>
-      <button onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()} className={editor.isActive("heading", { level: 1 }) ? "is-active" : ""}>
-        h1
-      </button>
-      <button onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} className={editor.isActive("heading", { level: 2 }) ? "is-active" : ""}>
-        h2
-      </button>
-      <button onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} className={editor.isActive("heading", { level: 3 }) ? "is-active" : ""}>
-        h3
-      </button>
-      <button onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()} className={editor.isActive("heading", { level: 4 }) ? "is-active" : ""}>
-        h4
-      </button>
-      <button onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()} className={editor.isActive("heading", { level: 5 }) ? "is-active" : ""}>
-        h5
-      </button>
-      <button onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()} className={editor.isActive("heading", { level: 6 }) ? "is-active" : ""}>
-        h6
-      </button> */}
     </>
   );
 };

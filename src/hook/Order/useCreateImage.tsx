@@ -68,6 +68,8 @@ export const useCreateImage = (
   };
 
   const handleCreateImage = () => {
+    console.log("contentTitleImage", contentTitleImage);
+    console.log("contentDescriptionImage", contentDescriptionImage);
     //handle errors
     if (contentTitleImage === "") {
       setstatutError((prev) => ({ ...prev, titleEmpty: true }));

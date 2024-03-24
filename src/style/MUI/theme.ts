@@ -42,7 +42,7 @@ const theme = createTheme({
       main: "#15c5e0",
     },
     error: {
-      main: "#7c5ed4",
+      main: "#bc60f1",
     },
     action: {
       disabledBackground: "#15c5e0",
@@ -74,9 +74,11 @@ const theme = createTheme({
         regular: {
           minHeight: "38px",
           paddingLeft: "5px",
+          paddingRight: "5px",
           "@media (min-width: 600px)": {
             minHeight: "38px",
             paddingLeft: "5px",
+            paddingRight: "5px",
           },
 
           borderRadius: "8px",

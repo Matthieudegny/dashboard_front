@@ -13,7 +13,7 @@ const ContainerImage: React.FC<{
 }> = ({ listImageOrder: listImageWithTitle, setlistImageOrder: setlistImageWithTitle }) => {
   return (
     <div className="modal_creation_form_container">
-      <Typography variant="h5">Images related to order:</Typography>
+      <Typography variant="h5">Order image association:</Typography>
       <FormImage setlistImageWithTitle={setlistImageWithTitle} listImageWithTitle={listImageWithTitle} />
     </div>
   );

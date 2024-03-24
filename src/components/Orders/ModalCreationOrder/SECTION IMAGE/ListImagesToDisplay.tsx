@@ -17,6 +17,7 @@ const ListImagesToDisplay: React.FC<{
         flexDirection: "row",
         flexWrap: "wrap",
         gap: "1vh",
+        padding: "1vh",
         justifyContent: "center",
         alignItems: "center",
         overflow: "hidden",

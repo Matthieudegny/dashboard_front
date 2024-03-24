@@ -11,6 +11,7 @@ import AddIcon from "@mui/icons-material/Add";
 //composant
 import FormOrderObject from "./FormOrderObject";
 import ContainerImage from "./SECTION IMAGE/ContainerImage";
+import FormOrderDescription from "./FormOrderDescription";
 import ListImagesToDisplay from "./SECTION IMAGE/ListImagesToDisplay";
 
 //model
@@ -40,7 +41,9 @@ const ModalCreationOrderContainer: React.FC<{
     >
       <div className="modal_container">
         <header>
-          <Typography variant="h3">Order creation:</Typography>
+          <Typography sx={{ paddingBottom: "2vh" }} variant="h3">
+            Order creation
+          </Typography>
         </header>
 
         <div className="container_form">
@@ -56,8 +59,10 @@ const ModalCreationOrderContainer: React.FC<{
             <ListImagesToDisplay listImageOrder={listImageOrder} setlistImageOrder={setlistImageOrder} />
           </div>
           <div className="section_bottom">
+            {/* Form description order */}
             <div className="modal_creation_form_container">
-              <TextField id="outlined-multiline-flexible" label="Description order" multiline minRows={4} />
+              <FormOrderDescription />
+              {/* <TextField id="outlined-multiline-flexible" label="Description order" multiline minRows={4} /> */}
             </div>
             <div
               style={{

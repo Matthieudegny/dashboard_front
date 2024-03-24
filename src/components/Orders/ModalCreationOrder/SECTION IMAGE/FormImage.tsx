@@ -54,10 +54,6 @@ const FormImage: React.FC<{
     statutError
   );
 
-  useEffect(() => {
-    console.log("statutError", statutError);
-  }, [statutError]);
-
   return (
     <>
       <ContainerTextEditor contentState={contentTitleImage} setContentState={setcontentTitleImage} isEditable={true} size={"short"} title={"Title image"} showTitle={true} statutIsError={statutError.titleEmpty} />
