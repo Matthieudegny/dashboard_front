@@ -4,6 +4,7 @@ import { Typography } from "@mui/material";
 import Underline from "@tiptap/extension-underline";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import Placeholder from "@tiptap/extension-placeholder";
 
 import "./EditorText.css";
 
@@ -17,12 +18,21 @@ const ContainerTextEditor: React.FC<TextEditorType> = ({ contentState, setConten
   const [contentEditor, setcontentEditor] = useState("");
 
   const editor: any = useEditor({
-    extensions: [StarterKit, Underline],
+    extensions: [
+      StarterKit,
+      Underline,
+      Placeholder.configure({
+        placeholder: "Write here …",
+        emptyEditorClass: "is-editor-empty",
+      }),
+    ],
     editable: isEditable,
     content: contentState,
     onUpdate: ({ editor }) => {
+      if (!editor) return;
       setcontentEditor(editor.getHTML());
-      setContentState(editor.getHTML());
+      //only if the component is editable, i update the contentState
+      if (setContentState && isEditable) setContentState(editor.getHTML());
     },
     editorProps: {
       attributes: {
@@ -38,8 +48,6 @@ const ContainerTextEditor: React.FC<TextEditorType> = ({ contentState, setConten
     }
   }, [contentState]);
 
-  const key = statutIsError ? "error" : "normal";
-
   return (
     <div
       style={{
@@ -48,6 +56,7 @@ const ContainerTextEditor: React.FC<TextEditorType> = ({ contentState, setConten
         width: "100%",
         marginTop: "-5px",
       }}
+      className={`${statutIsError ? "error" : ""}`}
     >
       {showTitle ? (
         <Typography sx={{ pb: "0.5vh" }} variant="h6" component="label" color={statutIsError ? "error" : ""}>

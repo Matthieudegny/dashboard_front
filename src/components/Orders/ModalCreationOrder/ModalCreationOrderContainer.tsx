@@ -9,9 +9,9 @@ import "./ModalCreationOrder.css";
 import AddIcon from "@mui/icons-material/Add";
 
 //composant
-import FormOrderObject from "./FormOrderObject";
-import ContainerImage from "./SECTION IMAGE/ContainerImage";
-import FormOrderDescription from "./FormOrderDescription";
+import FormOrderInformations from "./SECTION INFOS/FormOrderInformations";
+import FormCreationImageOrder from "./SECTION IMAGE/FormCreationImageOrder";
+import FormOrderDescription from "./SECTION INFOS/FormOrderDescription";
 import ListImagesToDisplay from "./SECTION IMAGE/ListImagesToDisplay";
 
 //model
@@ -49,20 +49,18 @@ const ModalCreationOrderContainer: React.FC<{
         <div className="container_form">
           <div className="section_top">
             <div className="section_top_half">
-              <FormOrderObject />
+              <FormOrderInformations />
             </div>
             <div className="section_top_half">
-              <ContainerImage listImageOrder={listImageOrder} setlistImageOrder={setlistImageOrder} />
+              <FormCreationImageOrder listImageOrder={listImageOrder} setlistImageOrder={setlistImageOrder} />
             </div>
           </div>
           <div className="section_middle">
             <ListImagesToDisplay listImageOrder={listImageOrder} setlistImageOrder={setlistImageOrder} />
           </div>
           <div className="section_bottom">
-            {/* Form description order */}
-            <div className="modal_creation_form_container">
+            <div className="modal_creationOrder_form_container">
               <FormOrderDescription />
-              {/* <TextField id="outlined-multiline-flexible" label="Description order" multiline minRows={4} /> */}
             </div>
             <div
               style={{

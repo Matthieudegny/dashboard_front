@@ -5,19 +5,22 @@ import { ImageFrontType } from "../../model/Order/model_order";
 
 export const useCreateImage = (
   listImageWithTitle: ImageFrontType[],
-  setlistImageWithTitle: React.Dispatch<React.SetStateAction<ImageFrontType[]>>,
-  setstatutError: React.Dispatch<React.SetStateAction<{ titleEmpty: boolean; descriptionEmpty: boolean; imageEmpty: boolean }>>,
-  statutError: { titleEmpty: boolean; descriptionEmpty: boolean; imageEmpty: boolean }
+  setlistImageWithTitle: React.Dispatch<React.SetStateAction<ImageFrontType[]>>
 ): {
   imageCreating: { id: number; image: string };
-  setimageCreating: React.Dispatch<React.SetStateAction<{ id: number; image: string }>>;
   handleUploadImage: (event: any) => void;
   handleCreateImage: () => void;
   contentTitleImage: string;
   setcontentTitleImage: React.Dispatch<React.SetStateAction<string>>;
   contentDescriptionImage: string;
   setcontentDescriptionImage: React.Dispatch<React.SetStateAction<string>>;
+  statutError: { titleEmpty: boolean; descriptionEmpty: boolean; imageEmpty: boolean };
 } => {
+  const [statutError, setstatutError] = useState({
+    titleEmpty: false,
+    descriptionEmpty: false,
+    imageEmpty: false,
+  });
   const [imageCreating, setimageCreating] = useState({
     id: 0,
     image: "",
@@ -112,5 +115,5 @@ export const useCreateImage = (
     });
   };
 
-  return { imageCreating, setimageCreating, handleUploadImage, handleCreateImage, contentTitleImage, setcontentTitleImage, contentDescriptionImage, setcontentDescriptionImage };
+  return { imageCreating, handleUploadImage, handleCreateImage, contentTitleImage, setcontentTitleImage, contentDescriptionImage, setcontentDescriptionImage, statutError };
 };

@@ -1,5 +1,9 @@
+//display one image of the list
+//containing the image, the title and the description
+//feature = delete the image
+
 import React, { useRef } from "react";
-import { Typography, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 import "../ModalCreationOrder.css";
@@ -31,20 +35,8 @@ const ImageToDisplay: React.FC<{
     }
   };
 
-  const handleUpdateTitle = (newValue: string) => {
-    let listImagesCloned = structuredClone(listImageOrder);
-    listImagesCloned[index].title = newValue;
-    setlistImageOrder(listImagesCloned);
-  };
-
-  const handleUpdateDescription = (newValue: string) => {
-    let listImagesCloned = structuredClone(listImageOrder);
-    listImagesCloned[index].description = newValue;
-    setlistImageOrder(listImagesCloned);
-  };
-
   return (
-    <div ref={myDivRef} className="rowContainerImageToDisplay fromOpacity0to1">
+    <div ref={myDivRef} className="imageToDisplay fromOpacity0to1">
       <div
         style={{
           display: "flex",
@@ -72,10 +64,8 @@ const ImageToDisplay: React.FC<{
             paddingLeft: "5%",
           }}
         >
-          <ContainerTextEditor contentState={imageOrder.title} setContentState={handleUpdateTitle} isEditable={false} size={"short"} title={""} showTitle={false} statutIsError={false} />
-          <ContainerTextEditor contentState={imageOrder.description} setContentState={handleUpdateDescription} isEditable={false} size={"short"} title={""} showTitle={false} statutIsError={false} />
-          {/* <Typography variant="h6">{imageOrder.title}</Typography>
-        <Typography variant="h6">{imageOrder.description}</Typography> */}
+          <ContainerTextEditor contentState={imageOrder.title} setContentState={undefined} isEditable={false} size={"short"} title={""} showTitle={false} statutIsError={false} />
+          <ContainerTextEditor contentState={imageOrder.description} setContentState={undefined} isEditable={false} size={"short"} title={""} showTitle={false} statutIsError={false} />
         </div>
 
         <IconButton

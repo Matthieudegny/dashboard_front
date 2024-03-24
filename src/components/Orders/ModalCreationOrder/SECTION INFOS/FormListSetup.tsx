@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Typography } from "@mui/material";
 import { Select, MenuItem, OutlinedInput, InputLabel, FormControl, Checkbox } from "@mui/material";
-import { SetupGoType } from "../../../model/Categories/model_catgories";
+import { SetupGoType } from "../../../../model/Categories/model_catgories";
 
 //store
-import { useCategoriesStore } from "../../../store/MainDatas/useCategoriesStore";
+import { useCategoriesStore } from "../../../../store/MainDatas/useCategoriesStore";
 
 const FormListSetup = () => {
   const { listSetupGo } = useCategoriesStore();

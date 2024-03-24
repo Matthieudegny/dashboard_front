@@ -74,7 +74,7 @@ export interface ImageFrontType {
 //text editor
 export interface TextEditorType {
   contentState: string;
-  setContentState: React.Dispatch<React.SetStateAction<string>> | ((newValue: string) => void);
+  setContentState?: React.Dispatch<React.SetStateAction<string>> | ((newValue: string) => void);
   isEditable: boolean;
   size: "short" | "long";
   title: string;

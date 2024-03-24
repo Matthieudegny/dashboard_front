@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+//display the form for the order informations and selection setup
 
 import { Typography, TextField } from "@mui/material";
 import { Select, MenuItem, ListItemText, OutlinedInput, InputLabel, FormControl } from "@mui/material";
@@ -8,16 +8,16 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 //style
-import { styleDatepicker } from "../../../style/datePicker";
+import { styleDatepicker } from "../../../../style/datePicker";
 
 //components
 import FormListSetup from "./FormListSetup";
 
-const FormOrderObject = () => {
+const FormOrderInformations = () => {
   return (
-    <div className="modal_creation_form_container">
-      <Typography variant="h5">Order informations:</Typography>
-      <div className="modal_creation_form_container_row">
+    <div className="modal_creationOrder_form_container">
+      <Typography variant="h5">Order informations :</Typography>
+      <div className="modal_creationOrder_form_container_row">
         <TextField name="asset" label="Asset" sx={{ width: "33%" }} />
         <FormControl sx={{ width: "33%" }}>
           <InputLabel id="demo-multiple-checkbox-label" sx={{ color: "white" }}>
@@ -66,7 +66,7 @@ const FormOrderObject = () => {
           />
         </LocalizationProvider>
       </div>
-      <div className="modal_creation_form_container_row">
+      <div className="modal_creationOrder_form_container_row">
         <TextField
           name="qty$"
           label="Qty $"
@@ -107,7 +107,7 @@ const FormOrderObject = () => {
           // }}
         />
       </div>
-      <div className="modal_creation_form_container_row">
+      <div className="modal_creationOrder_form_container_row">
         <TextField
           name="qtyAsset"
           label="Qty Asset"
@@ -149,13 +149,13 @@ const FormOrderObject = () => {
         />
       </div>
       <Typography sx={{ pt: "1vh" }} variant="h5">
-        Setup chosen:
+        Setup chosen :
       </Typography>
-      <div className="modal_creation_form_container_row">
+      <div className="modal_creationOrder_form_container_row">
         <FormListSetup />
       </div>
     </div>
   );
 };
 
-export default FormOrderObject;
+export default FormOrderInformations;
