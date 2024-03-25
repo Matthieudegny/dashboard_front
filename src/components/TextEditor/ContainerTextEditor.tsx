@@ -23,7 +23,6 @@ const ContainerTextEditor: React.FC<TextEditorType> = ({ contentState, setConten
       Underline,
       Placeholder.configure({
         placeholder: "Write here …",
-        emptyEditorClass: "is-editor-empty",
       }),
     ],
     editable: isEditable,

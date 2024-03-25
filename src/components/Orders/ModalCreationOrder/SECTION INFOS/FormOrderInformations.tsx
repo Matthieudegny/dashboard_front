@@ -1,5 +1,9 @@
 //display the form for the order informations and selection setup
 
+import { useFormContext } from "react-hook-form";
+import { z } from "zod";
+import { ZodTypeAny } from "zod";
+
 import { Typography, TextField } from "@mui/material";
 import { Select, MenuItem, ListItemText, OutlinedInput, InputLabel, FormControl } from "@mui/material";
 
@@ -13,12 +17,32 @@ import { styleDatepicker } from "../../../../style/datePicker";
 //components
 import FormListSetup from "./FormListSetup";
 
+const schema: ZodTypeAny = z.object({
+  asset: z.string().min(1, "Asset is required"),
+  type: z.string().min(1, "Type is required"),
+  Creationdate: z.date().refine((date) => date != null, "Creation date is required"),
+  qty$: z.number().min(1, "Qty $ must be greater than 0"),
+  qtyPercent: z.number().min(1, "Qty % must be greater than 0"),
+  SLPercentPF: z.number().min(1, "SL %PF must be greater than 0"),
+  qtyAsset: z.number().min(1, "Qty Asset must be greater than 0"),
+  buyingPrice: z.number().min(1, "Buying price must be greater than 0"),
+  SLprice: z.number().min(1, "SL price must be greater than 0"),
+});
+
+type FormValues = z.infer<typeof schema>;
+
 const FormOrderInformations = () => {
+  const {
+    register,
+    control,
+    formState: { errors },
+  } = useFormContext<FormValues>();
   return (
     <div className="modal_creationOrder_form_container">
       <Typography variant="h5">Order informations :</Typography>
       <div className="modal_creationOrder_form_container_row">
-        <TextField name="asset" label="Asset" sx={{ width: "33%" }} />
+        {/* <TextField name="asset" label="Asset" sx={{ width: "33%" }} /> */}
+        <TextField label="Asset" sx={{ width: "33%" }} error={!!errors.asset} helperText={errors.asset?.message ? String(errors.asset?.message) : undefined} {...register("asset", { required: "Asset is required" })} />
         <FormControl sx={{ width: "33%" }}>
           <InputLabel id="demo-multiple-checkbox-label" sx={{ color: "white" }}>
             Type
@@ -26,11 +50,12 @@ const FormOrderInformations = () => {
           <Select
             labelId="demo-multiple-checkbox-label"
             id="demo-multiple-checkbox"
-            value={"LONG"}
+            defaultValue=""
+            // {...register("type")}
+            // value={"LONG"}
             // onChange={handleChange}
             input={<OutlinedInput label="Client" />}
             // renderValue={handleRenderValue}
-
             sx={{
               ".MuiSvgIcon-root ": {
                 fill: "white !important",
