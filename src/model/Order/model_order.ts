@@ -1,4 +1,5 @@
 import { FailureGoType, SetupGoType, SetupSoType, FailureSoType } from "../Categories/model_catgories";
+import { FieldError } from "react-hook-form";
 
 //list orders fill with datas
 export interface GlobalOrderFillWithDatasDto {
@@ -79,5 +80,5 @@ export interface TextEditorType {
   size: "short" | "long";
   title: string;
   showTitle: boolean;
-  statutIsError: boolean;
+  statutIsError: boolean | FieldError | undefined;
 }

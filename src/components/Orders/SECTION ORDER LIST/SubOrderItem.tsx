@@ -26,8 +26,8 @@ const SubOrderItem: React.FC<{
       <div className="OI_colum">{returnFormatDateDataGrid(subOrder.subOrder.so_closeDate)}</div>
       <div className="OI_colum">{subOrder.subOrder.so_amountEngaged}</div>
       <div className="OI_colum">{subOrder.subOrder.so_quantity}</div>
-      <ColumnWithShowOptions returnListOptionUsed={() => returnSetupsListUsed()} title="Setups" subtitle="no setup" />
-      <ColumnWithShowOptions returnListOptionUsed={() => returnFailureListUsed()} title="Failures" subtitle="no failure" />
+      <ColumnWithShowOptions returnListOptionUsed={() => returnSetupsListUsed()} title="Setups" />
+      <ColumnWithShowOptions returnListOptionUsed={() => returnFailureListUsed()} title="Failures" />
       <div className="OI_colum">{subOrder.subOrder.so_result}</div>
       <div className="OI_colum">{subOrder.subOrder.so_result}</div>
     </div>

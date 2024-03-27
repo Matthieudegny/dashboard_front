@@ -133,6 +133,18 @@ const theme = createTheme({
         },
       },
     },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          // Add your styles here
+          position: "absolute",
+          left: "0",
+          bottom: "-21px",
+          fontSize: "0.8rem",
+          width: "100%",
+        },
+      },
+    },
     MuiTextField: {
       variants: [
         {
@@ -204,7 +216,7 @@ const theme = createTheme({
         MenuProps: {
           PaperProps: {
             style: {
-              backgroundColor: "#0e2530", // Couleur de fond pour le menu déroulant
+              backgroundColor: "var(--backgroundItemDark)",
             },
           },
         },
@@ -214,7 +226,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           color: "white", // Couleur de texte blanche
-          backgroundColor: "#0e2530", // Arrière-plan rouge par défaut
+          backgroundColor: "var(--backgroundItemDark)", // Arrière-plan rouge par défaut
           "&:hover": {
             backgroundColor: "#253d49", // Arrière-plan au survol
           },

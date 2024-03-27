@@ -14,13 +14,13 @@ import CheckIcon from "@mui/icons-material/Check";
 import ImageIcon from "@mui/icons-material/Image";
 
 //composant
-import ContainerTextEditor from "../../../TextEditor/ContainerTextEditor";
+import ContainerTextEditor from "../../TextEditor/ContainerTextEditor";
 
 //model
-import { ImageFrontType } from "../../../../model/Order/model_order";
+import { ImageFrontType } from "../../../model/Order/model_order";
 
 //hook
-import { useCreateImage } from "../../../../hook/Order/useCreateImage";
+import { useCreateImage } from "../../../hook/Order/useCreateImage";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -38,7 +38,7 @@ const FormCreationImageOrder: React.FC<{
   listImageOrder: ImageFrontType[];
   setlistImageOrder: React.Dispatch<React.SetStateAction<ImageFrontType[]>>;
 }> = ({ listImageOrder: listImageWithTitle, setlistImageOrder: setlistImageWithTitle }) => {
-  //hook to upload and create an object ImageFrontType + handle error form
+  //hook to upload and create an object ImageFrontType + handle error
   const { imageCreating, handleUploadImage, handleCreateImage, contentTitleImage, setcontentTitleImage, contentDescriptionImage, setcontentDescriptionImage, statutError } = useCreateImage(listImageWithTitle, setlistImageWithTitle);
 
   return (

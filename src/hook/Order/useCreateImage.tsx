@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 //model
 import { ImageFrontType } from "../../model/Order/model_order";
+import { stat } from "fs";
 
 export const useCreateImage = (
   listImageWithTitle: ImageFrontType[],
@@ -28,6 +29,14 @@ export const useCreateImage = (
   const [contentTitleImage, setcontentTitleImage] = useState("");
   const [contentDescriptionImage, setcontentDescriptionImage] = useState("");
 
+  //handle errors
+  useEffect(() => {
+    if (contentTitleImage !== "" && statutError.titleEmpty) setstatutError((prev) => ({ ...prev, titleEmpty: false }));
+  }, [contentTitleImage]);
+  useEffect(() => {
+    if (contentDescriptionImage !== "" && statutError.descriptionEmpty) setstatutError((prev) => ({ ...prev, descriptionEmpty: false }));
+  }, [contentDescriptionImage]);
+
   //i catch the last id of listImageWithTitle, and get a new id to the new image
   useEffect(() => {
     if (listImageWithTitle.length === 0) return;
@@ -35,6 +44,7 @@ export const useCreateImage = (
     setimageCreating((prev) => ({ ...prev, id: lastId + 1 }));
   }, [listImageWithTitle]);
 
+  //handle the upload of the image
   const handleUploadImage = async (event: any) => {
     console.log("event", event.target.files[0]);
     const readFileAsync = (file: File): Promise<string> => {
@@ -70,6 +80,7 @@ export const useCreateImage = (
     }
   };
 
+  //handle the creation of the image
   const handleCreateImage = () => {
     console.log("contentTitleImage", contentTitleImage);
     console.log("contentDescriptionImage", contentDescriptionImage);
@@ -92,7 +103,7 @@ export const useCreateImage = (
     }
     console.log("imageCreating", imageCreating);
 
-    //creation of the enw object ImageFrontType
+    //creation of the new object ImageFrontType
     let arrayCloned = structuredClone(listImageWithTitle);
     const newImage: ImageFrontType = {
       id: imageCreating.id,

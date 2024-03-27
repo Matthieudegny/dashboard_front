@@ -9,10 +9,10 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import "../ModalCreationOrder.css";
 
 //model
-import { ImageFrontType } from "../../../../model/Order/model_order";
+import { ImageFrontType } from "../../../model/Order/model_order";
 
 //component
-import ContainerTextEditor from "../../../TextEditor/ContainerTextEditor";
+import ContainerTextEditor from "../../TextEditor/ContainerTextEditor";
 
 const ImageToDisplay: React.FC<{
   listImageOrder: ImageFrontType[];

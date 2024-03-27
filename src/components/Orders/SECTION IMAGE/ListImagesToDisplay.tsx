@@ -4,7 +4,7 @@ import React from "react";
 import ImageToDisplay from "./ImageToDisplay";
 
 //model
-import { ImageFrontType } from "../../../../model/Order/model_order";
+import { ImageFrontType } from "../../../model/Order/model_order";
 
 const ListImagesToDisplay: React.FC<{
   listImageOrder: ImageFrontType[];

@@ -1,8 +1,8 @@
 @import "../../../style/index.css";
 
 .modal_container {
-  width: 70vw;
-  height: 93%;
+  width: 40vw;
+
   max-height: 100%;
   overflow-y: auto;
   position: relative;
@@ -15,40 +15,16 @@
   display: flex;
   flex-direction: column;
   transition: height 0.5s ease-out;
+  gap: 3vh;
 }
-.section_top {
-  display: flex;
-  justify-content: space-around;
-  max-width: 100%;
-  transition: all 0.5 ease-in-out;
-}
-.section_top_half {
-  transition: all 0.5s ease-in-out;
-  width: 40%;
-}
-.section_bottom {
-  margin: 0 auto;
-  width: 90%;
-  transition: all 0.5 ease-in-out;
-  display: flex;
-  flex-direction: column;
-  gap: 2vh;
-}
-.section_middle {
-  width: 90%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.5s ease-in-out;
-}
-.modal_creationOrder_form_container {
+.modal_section {
   display: flex;
   flex-direction: column;
   gap: 2vh;
   width: 100%;
   transition: all 0.5s ease-in-out;
 }
-.modal_creationOrder_form_container_row {
+.modal_section_row {
   position: relative;
   display: flex;
   flex-direction: row;

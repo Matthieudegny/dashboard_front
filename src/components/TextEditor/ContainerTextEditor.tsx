@@ -53,13 +53,13 @@ const ContainerTextEditor: React.FC<TextEditorType> = ({ contentState, setConten
         display: "flex",
         flexDirection: "column",
         width: "100%",
-        marginTop: "-5px",
+        gap: "2vh",
       }}
       className={`${statutIsError ? "error" : ""}`}
     >
       {showTitle ? (
-        <Typography sx={{ pb: "0.5vh" }} variant="h6" component="label" color={statutIsError ? "error" : ""}>
-          {title} {statutIsError ? <span style={{ fontStyle: "italic", fontSize: "1rem" }}>Please fill out this field</span> : ""}
+        <Typography variant="h6" component="label" color={statutIsError ? "error" : ""}>
+          {title} {statutIsError ? <span style={{ fontStyle: "italic", fontSize: "1rem" }}>is required</span> : ""}
         </Typography>
       ) : null}
 
