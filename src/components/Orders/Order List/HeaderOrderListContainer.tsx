@@ -9,13 +9,19 @@ import "./SectionOrderList.css";
 import AddIcon from "@mui/icons-material/Add";
 
 //component
-import ModalCreationOrderContainer from "../ModalCreationOrder/ModalCreationOrderContainer";
+import ModalCreationOrderContainer from "../Creation Order/ModalCreationOrderContainer";
+import ModalCreationSetup from "../Order Set up/ModalCreationSetup";
+
+//model
+import { GlobalOrderFillWithDatasDto } from "../../../model/Order/model_order";
 
 const HeaderOrderListContainer: React.FC<{
   setshowAllSubOrdersList: React.Dispatch<React.SetStateAction<boolean>>;
   showAllSubOrdersList: boolean;
 }> = ({ setshowAllSubOrdersList, showAllSubOrdersList }) => {
-  const [showModalCreationOrder, setshowModalCreationOrder] = useState(true);
+  const [orderCreating, setordercreating] = useState<GlobalOrderFillWithDatasDto | null>(null);
+  const [showModalCreationOrder, setshowModalCreationOrder] = useState(false);
+  const [showModalSetup, setshowModalSetup] = useState(true);
   return (
     <div className="headerOrdersList_container fromOpacity0to1">
       <div
@@ -34,7 +40,9 @@ const HeaderOrderListContainer: React.FC<{
         <Button startIcon={<AddIcon />} onClick={() => setshowModalCreationOrder(true)}>
           Create Order
         </Button>
-        <ModalCreationOrderContainer showModalCreationOrder={showModalCreationOrder} setshowModalCreationOrder={setshowModalCreationOrder} />
+
+        <ModalCreationOrderContainer showModalCreationOrder={showModalCreationOrder} setshowModalCreationOrder={setshowModalCreationOrder} setshowModalSetup={setshowModalSetup} setordercreating={setordercreating} />
+        <ModalCreationSetup showModalSetup={showModalSetup} setshowModalSetup={setshowModalSetup} />
       </div>
       <div
         style={{

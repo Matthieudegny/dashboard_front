@@ -1,19 +1,19 @@
 //display the form for the order informations and selection setup
 import { FormHelperText } from "@mui/material";
 
-import { UseFormRegister, FieldErrors, Control } from "react-hook-form";
+import { UseFormRegister, FieldErrors, Control, Controller } from "react-hook-form";
 
 import { Typography, TextField } from "@mui/material";
 import { Select, MenuItem, ListItemText, OutlinedInput, InputLabel, FormControl } from "@mui/material";
 
 //components
-import FormListSetup from "./FormListSetup";
 import DatePickerControlled from "../../DatePicker";
+import ContainerTextEditor from "../../TextEditor/ContainerTextEditor";
 
 //model
 import { CreationOrderFormValues } from "../../../model/Order/model_form_Order";
 
-const FormOrderInformations: React.FC<{
+const FormCreationOrder: React.FC<{
   register: UseFormRegister<CreationOrderFormValues>;
   errors: FieldErrors<CreationOrderFormValues>;
   control: Control<CreationOrderFormValues>;
@@ -91,8 +91,17 @@ const FormOrderInformations: React.FC<{
 
         <TextField label="SL price" sx={styleTextField} onKeyDown={(e) => handleKeyDownonNumberInput(e)} error={!!errors.sLprice} helperText={errors.sLprice?.message ? String(errors.sLprice?.message) : undefined} {...register("sLprice")} />
       </div>
+
+      <Controller
+        control={control}
+        name="description"
+        rules={{ required: true }}
+        render={({ field: { onChange, value }, fieldState: { error } }) => {
+          return <ContainerTextEditor contentState={value} setContentState={onChange} isEditable={true} size={"long"} title={"Order description :"} showTitle={true} statutIsError={error} />;
+        }}
+      />
     </div>
   );
 };
 
-export default FormOrderInformations;
+export default FormCreationOrder;

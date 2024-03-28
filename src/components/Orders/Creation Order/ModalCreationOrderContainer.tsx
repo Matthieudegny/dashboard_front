@@ -3,30 +3,42 @@
 
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
-import { Controller } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-import { Modal, Typography, Button } from "@mui/material";
+import { Modal, Typography, Button, CircularProgress, Box } from "@mui/material";
 
 import "./ModalCreationOrder.css";
 import AddIcon from "@mui/icons-material/Add";
 
 //composant
-import FormOrderInformations from "../SECTION INFOS/FormOrderInformations";
-import ContainerTextEditor from "../../TextEditor/ContainerTextEditor";
+import FormCreationOrder from "./FormCreationOrder";
 
 //model
-import { ImageFrontType } from "../../../model/Order/model_order";
 import { CreationOrderFormValues, schemaOrderCreation } from "../../../model/Order/model_form_Order";
+import { GlobalOrderFillWithDatasDto } from "../../../model/Order/model_order";
+
+//hook
+import { useCreationOrder } from "../../../hook/Order/useCreationOrder";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 const ModalCreationOrderContainer: React.FC<{
   showModalCreationOrder: boolean;
   setshowModalCreationOrder: React.Dispatch<React.SetStateAction<boolean>>;
-}> = ({ showModalCreationOrder, setshowModalCreationOrder }) => {
+  setshowModalSetup: React.Dispatch<React.SetStateAction<boolean>>;
+  setordercreating: React.Dispatch<React.SetStateAction<GlobalOrderFillWithDatasDto | null>>;
+}> = ({ showModalCreationOrder, setshowModalCreationOrder, setshowModalSetup, setordercreating }) => {
   //portal
   const modalRoot = document.getElementById("modal-creationOrder");
+
+  const handleCloseModal = () => {
+    setshowModalCreationOrder(false);
+    reset();
+  };
+
+  //hook to handle the creation order request
+  const { handleCreationOrder, isCreatingOrder } = useCreationOrder(setordercreating, setshowModalSetup, handleCloseModal);
 
   // handle form
   const methods = useForm<CreationOrderFormValues>({
@@ -36,20 +48,13 @@ const ModalCreationOrderContainer: React.FC<{
   const {
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     register,
     control,
   } = methods;
 
-  const onSubmit: SubmitHandler<CreationOrderFormValues> = (data) => {
-    console.log("data");
-    console.log("errors", methods.formState);
-    console.log(data);
-  };
-
-  const handleCloseModal = () => {
-    setshowModalCreationOrder(false);
-    reset();
+  const onSubmit: SubmitHandler<CreationOrderFormValues> = (formValues) => {
+    handleCreationOrder(formValues);
   };
 
   return createPortal(
@@ -74,16 +79,7 @@ const ModalCreationOrderContainer: React.FC<{
         </header>
 
         <form onSubmit={handleSubmit(onSubmit)} className="container_form">
-          <FormOrderInformations register={register} errors={errors} control={control} />
-          {/* <FormListSetup /> */}
-          <Controller
-            control={control}
-            name="description"
-            rules={{ required: true }}
-            render={({ field: { onChange, value }, fieldState: { error } }) => {
-              return <ContainerTextEditor contentState={value} setContentState={onChange} isEditable={true} size={"long"} title={"Order description :"} showTitle={true} statutIsError={error} />;
-            }}
-          />
+          <FormCreationOrder register={register} errors={errors} control={control} />
 
           <div
             style={{
@@ -96,9 +92,9 @@ const ModalCreationOrderContainer: React.FC<{
             <Button onClick={handleCloseModal} variant="outlined">
               Cancel
             </Button>
-            <Button type="submit" startIcon={<AddIcon />} variant="contained">
-              Creation order
-            </Button>
+            <LoadingButton loading={isCreatingOrder} loadingPosition="start" startIcon={isCreatingOrder ? <CircularProgress style={{ marginRight: "-18px" }} /> : <Box></Box>} variant="contained" color="primary" type="submit">
+              {isCreatingOrder ? <span>Loading</span> : <>Creation order</>}
+            </LoadingButton>
           </div>
         </form>
       </div>

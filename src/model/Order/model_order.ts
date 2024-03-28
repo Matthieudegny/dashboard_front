@@ -22,11 +22,11 @@ export interface Global_Order {
   go_id: number;
   go_user_id: number;
   go_openDate: string;
-  go_closeDate: string;
+  go_closeDate: string | null;
   go_asset: string;
   go_quantity: number;
   go_entryPrice: number;
-  go_exitPrice: number;
+  go_exitPrice: number | null;
   go_percentageEngaged: number;
   go_amountEngaged: number;
   go_percentageStopLoss: number;

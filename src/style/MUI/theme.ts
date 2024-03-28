@@ -32,6 +32,7 @@ const theme = createTheme({
     h6: {
       fontFamily: "var(--fontTitle)",
       fontSize: "var(--fontSizeH6)",
+      marginBottom: "-8px",
     },
   },
   palette: {
@@ -82,7 +83,6 @@ const theme = createTheme({
           },
 
           borderRadius: "8px",
-          marginBottom: "10px",
           border: "1px solid white",
         },
       },

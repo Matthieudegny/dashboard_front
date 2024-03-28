@@ -48,15 +48,7 @@ const ContainerTextEditor: React.FC<TextEditorType> = ({ contentState, setConten
   }, [contentState]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100%",
-        gap: "2vh",
-      }}
-      className={`${statutIsError ? "error" : ""}`}
-    >
+    <div className={`modal_section ${statutIsError ? "error" : ""}`}>
       {showTitle ? (
         <Typography variant="h6" component="label" color={statutIsError ? "error" : ""}>
           {title} {statutIsError ? <span style={{ fontStyle: "italic", fontSize: "1rem" }}>is required</span> : ""}

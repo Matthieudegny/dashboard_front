@@ -42,7 +42,7 @@ const FormCreationImageOrder: React.FC<{
   const { imageCreating, handleUploadImage, handleCreateImage, contentTitleImage, setcontentTitleImage, contentDescriptionImage, setcontentDescriptionImage, statutError } = useCreateImage(listImageWithTitle, setlistImageWithTitle);
 
   return (
-    <div className="modal_creationOrder_form_container">
+    <div className="modal_section">
       <Typography variant="h5">Order image association :</Typography>
 
       <ContainerTextEditor contentState={contentTitleImage} setContentState={setcontentTitleImage} isEditable={true} size={"short"} title={"Title image"} showTitle={true} statutIsError={statutError.titleEmpty} />

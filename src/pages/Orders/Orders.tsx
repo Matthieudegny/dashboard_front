@@ -15,8 +15,8 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { useOrdersStore } from "../../store/MainDatas/useOrdersStore";
 
 //composant
-import OrdersListContainer from "../../components/Orders/SECTION ORDER LIST/OrdersListContainer";
-import SideBarContainer from "../../components/Orders/SECTION SIDE BAR/SideBarContainer";
+import OrdersListContainer from "../../components/Orders/Order List/OrdersListContainer";
+import SideBarContainer from "../../components/Orders/Side bar/SideBarContainer";
 import { GlobalOrderFillWithDatasDto } from "../../model/Order/model_order";
 
 const Orders = () => {
